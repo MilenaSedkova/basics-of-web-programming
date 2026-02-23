@@ -4,7 +4,7 @@
 ## My moto is:
 >Never give up
 
-![My photo](<C:\Users\user\Web\CV project> "My photo")
+![My photo](MyPhoto.jpg "My photo")
 
 ## Information about me
 * I am motivated, disciplined, and eager to learn new technologies.
