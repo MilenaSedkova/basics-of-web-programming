@@ -3,23 +3,17 @@
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: "Georgia", serif;
-  background-color: #f4f1ea;
-  overflow-x: hidden;
-  font-family: 'Oxygen', sans-serif; /*шрифты без маленьких декоративных черточек (засечек) на концах букв.*/
-}
+ max-width: 1440px;  /* Твоя цель */
+  margin: 0 auto;     /* Магия: центрирует блок, распределяя пустое место поровну */
+  width: 100%;        /* Чтобы блок был адаптивным */
+  
+  /* Дополнительно: добавь небольшие падинги по бокам, 
+     чтобы контент не прилипал к краям на экранах ровно 1440px */
+  padding-left: 0px;
+  padding-right: 0px;
+  box-sizing: border-box; /*шрифты без маленьких декоративных черточек (засечек) на концах букв.*/
+  background-color: #EFEEE8;
 
-.navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      padding: 0 22px;
-      height: 90px;    
-      background-color: #f4f1ea;
-      border-bottom: 1px solid #d1cfc8;
 }
 
 .logo {
@@ -28,11 +22,11 @@ body {
   font-weight: bold;
   font-size: 20px;
   color: #333;
-}
-
-.star-icon {
-  margin-right: 8px;
-  font-size: 24px;
+  gap: 3px;
+  margin-top: 5px;
+  margin-left: -6px;
+  width: 187px;
+  height: 34px;
 }
 
 .navbar {
@@ -40,8 +34,9 @@ body {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 0 59px; /* Вернул стандартный отступ по краям */
-  height: 90px;
+  max-width: 1440px;
+  padding: 0 59px;
+  height: 80px;
   background-color: #f4f1ea;
   border-bottom: 1px solid #d1cfc8;
 }
@@ -49,12 +44,11 @@ body {
 .nav-links {
   display: flex;
   list-style: none;
-  /* УМЕНЬШАЕМ gap, чтобы компенсировать ширину слов */
-  gap: 35px; 
-  padding: 0; /* ОБНУЛЯЕМ, чтобы не было паразитных сдвигов */
+  gap: 25px; 
+  padding: 0;
   margin: 0;
   position: relative;
-  left: -4px;
+  left: -3px;
 }
 
 .nav-links a {
@@ -63,37 +57,17 @@ body {
   font-size: 16px;
   font-family: 'Oxygen', sans-serif;
   font-weight: 500;
-  letter-spacing: 0; /* УМЕНЬШИЛИ: 0.03 было слишком много */
+  letter-spacing: 0.01px; /* УМЕНЬШИЛИ: 0.03 было слишком много */
   display: flex;
   align-items: center;
   gap: 5px; /* Расстояние от текста до стрелки внутри ссылки */
 }
 
 .nav-links a img {
-  /* РАЗМЕР СТРЕЛКИ: в макете она маленькая! */
   width: 22px; 
   height: auto;
   flex-shrink: 0;
 }
-
-/*.cta-container {
-  border-left: 1px solid #333;
-  border-top: 1px solid #333;
-  border-right: 1px solid #333;
-  border-bottom: 1px solid #333;
-}
-*/
-
-/*.cta-button {
-  display: flex;
-  align-items: center;
-  padding: 15px 25px;
-  text-decoration: none;
-  color: #333;
-  font-size: 14px;
-  background-color: transparent;
-}
-*/
 
 .line {
   display: inline-block;
@@ -111,49 +85,241 @@ body {
 
 .hero-section {
   width: 100%;
-  padding: 120px 20px;
+  min-height: 362px;
+  padding-top: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  position: relative;
+  left: 1px;
 }
 
 .hero-title {
-      font-size: 80px; 
-      line-height: 1.05;
       margin-bottom: 25px;
-      letter-spacing: -1px; 
-      font-weight: 500;
+      letter-spacing: -0.02px; 
+      font-family: "Libre Baskerville";
+      font-size: 66px;
+      padding-left: 2px;
+      font-style: normal;
+      font-weight: 700;
+      width: auto;
+      line-height: 74px; /* 1.1 это множитель, т.е. если font-size 20px, то line-heigth 20*1.1 */
+      white-space: nowrap;   /* Запрещает перенос строки */
 }
 
 .hero-subtitle {
+      text-align: center;
       font-family: Oxygen; 
-      font-size: 20px;
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 400;
       color: #555;
       max-width: 900px; 
-      margin-bottom: 45px;
-      line-height: 1.6;
+      margin-top: 3px;
+      margin-left: 0px;
+      line-height: 1.7;
+      letter-spacing: 0px;
     }
 
 .hero-btn {
       display: inline-flex;
-      align-items: center;
+      align-items: center;      /* Центрирует текст по вертикали */
+      justify-content: flex-start;   /* Центрирует текст по горизонтали */
       background-color: #333;
+      font-family: Oxygen;
       color: #f4f1ea;
-      padding: 18px 45px;
+      margin-top: 14px;
       text-decoration: none;
-      font-size: 16px;
-      gap: 20px;
+      font-size: 18px;
+      gap: 50px;
+
+      white-space: nowrap;
+      padding: 17px 25px 20px 25px;
+      height: 64px;
+      box-sizing: border-box; 
+      line-height: 1;
+      position: relative;
+      left: 0px;
+      width: 242px;
+      height: 64px;
     }
 
-.hero-btn:hover {
-  opacity: 0.9;
-  background-color: #000;
+.button-arrow1{
+  width: 28px;
+  height: auto;
+  gap: 20px;
+}
+
+.gallery-section {
+  background-color: #333;
+  padding: 0px 40px;
+  margin-top: 80px;
+  margin-right: 0px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 700px;
+  box-sizing: border-box;
+  gap: 32px;
+}
+
+.gallery-grid {
+  display: grid;
+  /* Создаем 3 колонки равной ширины */
+  grid-template-columns: repeat(3, 1fr); 
+  /* Отступы между карточками */
+  gap: 32px; 
+  max-width: 1200px;
+  width: 100%;
+}
+
+.gallery-item {
+  background-color: #fff;
+  border-radius: 4px; /* Из Figma: border-radius 4px */
+  border: 1px solid rgba(239, 238, 234, 0.1); /* Тонкая рамка */
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  position: relative;
+  left: -10px;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.item-pricing {
+  width: 391px;  /* Ширина из ваших Layer properties */
+  height: 365px;
+  position: relative;
+  left: -20px;
 
 }
 
-.long-arrow {
-  margin-left: 20px;
+.item-coaching{
+  width: 355px;  /* Ширина из ваших Layer properties */
+  height: 535px;
+  position: relative;
+  left: -20px;
+}
+
+.item-hero{
+  width: 390px;
+  height: 385px;
+  object-fit: cover;
+  position: relative;
+  left: 18px;
+  top: 120px;
+}
+
+.item-testimonial{
+  width: 392px;
+  height: 303px;
+  position: relative;
+  bottom: 172px;
+  left: -20px;
+}
+
+.item-last{
+  width: 355px;
+  height: 134px;
+  position: relative;
+  left: -20px;
+}
+
+.facts-section {
+  background-color: #efeee8; /* Цвет фона всей секции */
+  padding: 80px 0;
+  font-family: 'Oxygen', sans-serif;
+  color: #333;
+}
+
+.facts-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+
+
+
+/* Левая колонка */
+.facts-image {
+  flex: 1; /*занимает все свободное место контейнера*/
+}
+
+.facts-image img {
+  width: 604px;
+  height: 820px;
+  display: block; /*элемент становится блочным. Только блочным элементам (и еще inline-block/flex)*/
+  position: relative;
+  left: -40px;
+  top: -20px;
+  object-fit: contain;
+}
+
+/* Правая колонка */
+.facts-content {
+  flex: 1;
+}
+
+.facts-content h2 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.facts-content .subtitle {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  color: #555;
+}
+
+.list-label {
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 20px;
+}
+
+/* Список с линиями */
+.facts-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+}
+
+.facts-list li {
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2); /* Линии между пунктами */
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Кнопка */
+.buy-btn {
+  display: inline-flex;
+  align-items: center;
+  background-color: #333;
+  color: #fff;
+  padding: 18px 35px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.buy-btn:hover {
+  background-color: #000;
+}
+
+.buy-btn .arrow {
+  margin-left: 50px;
   font-size: 20px;
-  line-height: 1;
 }
