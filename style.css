@@ -6,12 +6,9 @@ body {
  max-width: 1440px;  /* Твоя цель */
   margin: 0 auto;     /* Магия: центрирует блок, распределяя пустое место поровну */
   width: 100%;        /* Чтобы блок был адаптивным */
-  
-  /* Дополнительно: добавь небольшие падинги по бокам, 
-     чтобы контент не прилипал к краям на экранах ровно 1440px */
   padding-left: 0px;
   padding-right: 0px;
-  box-sizing: border-box; /*шрифты без маленьких декоративных черточек (засечек) на концах букв.*/
+  box-sizing: border-box; 
   background-color: #EFEEE8;
 
 }
@@ -57,10 +54,10 @@ body {
   font-size: 16px;
   font-family: 'Oxygen', sans-serif;
   font-weight: 500;
-  letter-spacing: 0.01px; /* УМЕНЬШИЛИ: 0.03 было слишком много */
+  letter-spacing: 0.01px; 
   display: flex;
   align-items: center;
-  gap: 5px; /* Расстояние от текста до стрелки внутри ссылки */
+  gap: 5px; 
 }
 
 .nav-links a img {
@@ -104,7 +101,7 @@ body {
       font-style: normal;
       font-weight: 700;
       width: auto;
-      line-height: 74px; /* 1.1 это множитель, т.е. если font-size 20px, то line-heigth 20*1.1 */
+      line-height: 74px;
       white-space: nowrap;   /* Запрещает перенос строки */
 }
 
@@ -245,74 +242,118 @@ body {
   padding: 0 20px;
 }
 
-
-
-
 /* Левая колонка */
 .facts-image {
-  flex: 1; /*занимает все свободное место контейнера*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .facts-image img {
-  width: 604px;
-  height: 820px;
-  display: block; /*элемент становится блочным. Только блочным элементам (и еще inline-block/flex)*/
-  position: relative;
-  left: -40px;
-  top: -20px;
+  display: block; 
   object-fit: contain;
+  width: 900px; 
+  height: 780px;
+  position: relative;
+  margin-left: -188px;
+  margin-top: 31px;
 }
 
 /* Правая колонка */
 .facts-content {
   flex: 1;
+  padding-top: 85px;   /* Подбирай это значение (больше/меньше), чтобы совместить верх */
+  padding-right: 115px;  /* Подбирай, чтобы совместить левый край текста */
+  padding-left: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-size: 40px;
+  font-family: "Libre Baskerville", serif;
+  position: relative;
+  left: 2px;
+  margin-left: -130px; 
+  letter-spacing: 2%;
+  line-height: 48px;
 }
 
 .facts-content h2 {
   font-family: 'Libre Baskerville', serif;
-  font-size: 42px;
-  margin-bottom: 20px;
+  font-size: 40px;
+  margin-bottom: 10px;
+  padding-top: 5px;
+  line-height: 44px;
+  letter-spacing: 0.6px;
+  margin-top: 0;        /* Обнуляем внешние отступы, чтобы не мешали */
+  white-space: nowrap;
+  font-weight: 700;
+
 }
 
 .facts-content .subtitle {
-  font-size: 18px;
-  line-height: 1.6;
+  width: 494px;
+  font-size: 17px;
+  line-height: 29.7px;
   margin-bottom: 40px;
   color: #555;
+  font-family: Oxygen;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+  padding-top: 3px;
 }
 
 .list-label {
-  font-size: 12px;
+  font-family: Oxygen;
+  font-size: 14px;
   font-weight: bold;
-  letter-spacing: 1px;
+  letter-spacing: 0.2px;
   text-transform: uppercase;
   display: block;
-  margin-bottom: 20px;
+  padding-left: 0px;
+  padding-top: 12px;
+  line-height: 23.1px;
+  margin-left: -2px;
 }
 
-/* Список с линиями */
+.facts-list {
+  width: 485px;
+  height: 482px;
+  gap: 15px;
+}
+
 .facts-list ul {
   list-style: none;
   padding: 0;
-  margin: 0 0 40px 0;
+  margin: 0;
 }
 
 .facts-list li {
-  padding: 20px 0;
+  padding: 17.5px 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2); /* Линии между пунктами */
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 24px;
+  font-size: 15px;
+  letter-spacing: 0px;
+  font-family: Oxygen;
 }
 
-/* Кнопка */
 .buy-btn {
   display: inline-flex;
   align-items: center;
-  background-color: #333;
+  justify-content: flex-start; 
+  width: 215px;
+  height: 48px;
+  background-color: #333; 
   color: #fff;
-  padding: 18px 35px;
+  padding: 19px 22px; 
   text-decoration: none;
-  font-size: 16px;
+  font-family: 'Oxygen', sans-serif; 
+  font-size: 16px; 
+  font-weight: 400; 
+  gap: 38px; 
+  white-space: nowrap;
+  letter-spacing: 0.2px;
+  margin-top: 2px;
 }
 
 .buy-btn:hover {
@@ -320,6 +361,110 @@ body {
 }
 
 .buy-btn .arrow {
-  margin-left: 50px;
-  font-size: 20px;
+  width: 28px;
+  height: auto;
+  gap: 20px;
 }
+
+.facts-list li:first-child {
+  font-size: 15px;      
+  letter-spacing: 0px;
+  line-height: 21.9px;
+  padding-top: 36px;
+}
+
+.facts-list li:not(:first-child) {
+  font-size: 16px;
+  padding-top: 18.6px;
+}
+
+
+.hp-section {
+  background-color: #EFEEE8;
+  padding: 100px 0;
+  width: 100%;
+  height: 2661.69px;
+}
+
+.hp-container {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.hp-main-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+  margin-top: 5px;
+  margin-left: -49px;
+}
+
+.hp-main-subtitle {
+  font-family: 'Oxygen', sans-serif;
+  font-size: 18px;
+  line-height: 29.7px;
+  color: #555;
+  max-width: 650px;
+  margin-bottom: 60px;
+  margin-top: 25px;
+  margin-left: -49px;
+}
+
+
+/* Сетка карточек */
+.hp-grid {
+  display: grid;
+  justify-content: flex-start;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  width: 100%;
+  max-width: 1300px; /* Контейнер должен быть как в макете */
+  margin: 0 auto;
+  margin-left: -50px;
+  margin-top: -5px;
+  padding-bottom: 40px;
+  gap: 32px;
+}
+
+
+/* Стили карточки */
+.hp-card {
+  width: 392px;
+  background-color: #E4E2D3;
+  /* Увеличиваем padding-top до 55px, чтобы опустить картинку как в макете */
+  padding: 25px 25px 20px 25px; 
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin-top: -12px;
+}
+
+.hp-image-box {
+  background-color: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px; /* Расстояние до текста из макета */
+  line-height: 0;
+  height: auto;
+}
+
+.hp-image-box img {
+  width: 100%;      /* Картинка всегда занимает всю ширину внутри padding */
+  height: auto;     /* Сохраняет пропорции оригинала */
+  display: block;
+}
+
+/* Футер карточки */
+.hp-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding: 0px 15px;
+
+  padding-bottom: 20px;
+}
+
