@@ -6,11 +6,8 @@ body {
  max-width: 1440px;  /* Твоя цель */
   margin: 0 auto;     /* Магия: центрирует блок, распределяя пустое место поровну */
   width: 100%;        /* Чтобы блок был адаптивным */
-  /*padding-left: 0px;
-  padding-right: 0px;*/
   box-sizing: border-box; 
   background-color: #EFEEE8;
-
 }
 
 .logo {
@@ -42,8 +39,6 @@ body {
   display: flex;
   list-style: none;
   gap: 25px; 
-  padding: 0;
-  margin: 0;
   position: relative;
   left: -3px;
 }
@@ -63,7 +58,6 @@ body {
 .nav-links a img {
   width: 22px; 
   height: auto;
-  flex-shrink: 0;
 }
 
 .line {
@@ -135,8 +129,6 @@ body {
   height: 64px;
   box-sizing: border-box; 
   line-height: 1;
-  position: relative;
-  left: 0px;
   width: 242px;
   height: 64px;
 }
@@ -161,7 +153,6 @@ body {
 }
 
 .gallery-grid {
-
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
@@ -169,13 +160,11 @@ body {
   width: 100%;
 }
 
-
 .gallery-item {
   background-color: #fff;
   border-radius: 4px;
   border: 1px solid rgba(239, 238, 234, 0.1);
   overflow: hidden;
-  transition: transform 0.3s ease;
   position: relative;
   left: -10px;
 }
@@ -204,7 +193,6 @@ body {
 .item-hero{
   width: 390px;
   height: 385px;
-  object-fit: cover;
   position: relative;
   left: 18px;
   top: 120px;
@@ -227,7 +215,7 @@ body {
 }
 
 .facts-section {
-  background-color: #efeee8; 
+  background-color: #EFEEE8; 
   padding: 80px 0;
   font-family: 'Oxygen', sans-serif;
   color: #333;
@@ -243,13 +231,13 @@ body {
 }
 
 .facts-image {
-  display: flex;
+  display: flex; /*упаковывем в flex-container*/
   justify-content: center;
   align-items: center;
 }
 
 .facts-image img {
-  display: block; 
+  display: block; /*1. занимает всю дотспуную ширину родительского контейнера 2. все, что идет после этого элемента, начинается со следующей строки */
   object-fit: contain;
   width: 900px; 
   height: 780px;
@@ -259,13 +247,11 @@ body {
 }
 
 .facts-content {
-  flex: 1;
-  padding-top: 85px;
-  padding-right: 115px;
-  padding-left: 3px;
+  flex: 1; /*заполнитт все свободное место, которое осталось в контейнер*/
+  padding: 85px 115px 0px 3px;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  flex-direction: column; /*элементы выстраиваются сверху вниз*/
+  justify-content: flex-start; /*выравнивание по горизонтали(вверх, вниз, центр)*/
   font-size: 40px;
   font-family: "Libre Baskerville", serif;
   position: relative;
@@ -280,12 +266,11 @@ body {
   font-size: 40px;
   margin-bottom: 10px;
   padding-top: 5px;
-  line-height: 44px;
+  line-height: 45px;
   letter-spacing: 0.6px;
-  margin-top: 0;
+  margin-top: -1px;
   white-space: nowrap;
   font-weight: 700;
-
 }
 
 .facts-content .subtitle {
@@ -327,8 +312,7 @@ body {
 
 .facts-list li {
   padding: 17.5px 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  font-size: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2); /*первые 3 - цвет, последняя - прозрачность*/
   line-height: 24px;
   font-size: 15px;
   letter-spacing: 0px;
@@ -354,10 +338,6 @@ body {
   margin-top: 2px;
 }
 
-.buy-btn:hover {
-  background-color: #000;
-}
-
 .buy-btn .arrow {
   width: 28px;
   height: auto;
@@ -375,7 +355,6 @@ body {
   font-size: 16px;
   padding-top: 18.6px;
 }
-
 
 .hp-section {
   background-color: #EFEEE8;
@@ -414,8 +393,8 @@ body {
 
 .hp-grid {
   display: grid;
-  justify-content: flex-start;
-  grid-template-columns: repeat(3, 1fr);
+  justify-content: flex-start; /*выравнивание контента по началу*/
+  grid-template-columns: repeat(3, 1fr); /*повтори след иснтрукцию 3 раза. 1fr - раздели свободную часть на 3 равные части*/
   gap: 32px;
   width: 100%;
   max-width: 1300px;
@@ -438,7 +417,7 @@ body {
 
 .hp-image-box {
   background-color: #fff;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  /*box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);*/
   margin-bottom: 30px; 
   line-height: 0;
   height: auto;
@@ -452,12 +431,11 @@ body {
 
 .hp-footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /*элементы разлетаются по равным частям*/
   align-items: center;
   margin-top: auto;
-  padding: 0px 15px;
-
-  padding-bottom: 20px;
+  padding: 0px 15px 20px 15px;
+ /* padding-bottom: 20px;*/
 }
 
 .ap-title {
@@ -634,28 +612,24 @@ body {
   padding-right: 21px;
 }
 
-
-/*(Внешний блок)*/
 .footer {
   background-color: #E4E2D3;;
   width: 100%;
   height: 812px;
   font-family: 'Oxygen', sans-serif;
   background-color: #E4E2D3;
-  padding: 0px 0 60px 0;    /* Уменьшил паддинги, макет компактнее */
+  padding: 0px 0 60px 0;  
 }
 
-/*(Внутренний ограничитель)*/
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 80px 60px;
-
 }
 
 .footer-top {
   display: flex;
-  justify-content: space-between; /* Это главное свойство: лого влево, иконки вправо */
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 80px;
   width: 100%;
@@ -680,7 +654,6 @@ body {
   padding-top: 11px;
 }
 
-/* Основной контент */
 .footer-content {
   display: flex;
   justify-content: flex-start;
@@ -709,7 +682,6 @@ body {
   grid-template-columns: repeat(4, 130px);
   gap: 40px;
   margin-top: -5px;
-  /*transform: translateX(170px);*/
   margin-left: 170px;
 }
 
@@ -727,7 +699,6 @@ body {
   gap: 23px;
   font-family: Oxygen;
   margin-left: 1px;
-
 }
 
 .links-column3 {
@@ -735,7 +706,6 @@ body {
   flex-direction: column;
   gap: 23px;
   font-family: Oxygen;
-
 }
 
 .links-column4 {
@@ -826,5 +796,5 @@ body {
   margin-bottom: 2px;
   margin-top: -10.5px;
   letter-spacing: 0.3px;
-  margin-left: -41px;
+  margin-left: -42px;
 }
