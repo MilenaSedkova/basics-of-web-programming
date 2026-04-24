@@ -1,12 +1,21 @@
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden; /* Это ГАРАНТИРУЕТ отсутствие белой полосы справа */
+  background-color: #EFEEE8;
+}
+
 * {
   box-sizing: border-box; 
 }
 
-body {
- max-width: 1440px;  /* Твоя цель */
-  margin: 0 auto;     /* Магия: центрирует блок, распределяя пустое место поровну */
-  width: 100%;        /* Чтобы блок был адаптивным */
-  box-sizing: border-box; 
+body { 
+  /* max-width: 1440px; */
+  margin: 0;   
+  width: 100%;
+  box-sizing: border-box; /*включаем paddings в заданную ширину элемента*/
   background-color: #EFEEE8;
 }
 
@@ -23,16 +32,21 @@ body {
   height: 34px;
 }
 
+header {
+  width: 100%;
+  background-color: #f4f1ea; /* Цвет фона шапки на всю ширину */
+  border-bottom: 1px solid #d1cfc8;
+}
+
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  max-width: 1440px;
-  padding: 0 59px;
+  max-width: 1440px; /* Ограничиваем только контент внутри */
+  margin: 0 auto;    /* Центрируем шапку */
+  padding: 0 60px;   /* Отступы по бокам */
   height: 80px;
-  background-color: #f4f1ea;
-  border-bottom: 1px solid #d1cfc8;
 }
 
 .nav-links {
@@ -797,4 +811,345 @@ body {
   margin-top: -10.5px;
   letter-spacing: 0.3px;
   margin-left: -42px;
+}
+
+@media (max-width: 1274px) {
+    .navbar {
+        padding: 0 20px;
+    }
+
+    .hero-title {
+        font-size: 48px;
+        line-height: 1.2;
+        white-space: normal; /* Разрешаем перенос строк */
+    }
+
+    .gallery-section {
+        height: auto;
+        padding: 40px 20px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr; /* 2 колонки вместо 3 */
+    }
+
+    .gallery-item, .item-pricing, .item-coaching, .item-hero, .item-testimonial {
+        width: 100%; /* Сбрасываем фиксированную ширину */
+        height: auto;
+        position: static; /* Убираем сдвиги */
+        transform: none;
+    }
+
+    .facts-container, .contact-container {
+        flex-direction: column; /* Стек: картинка сверху, текст снизу */
+        align-items: center;
+        gap: 40px;
+    }
+
+    .facts-image img, .contact-img {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+        margin: 0;
+        position: static;
+    }
+
+    .facts-content, .contact-content {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        align-items: center;
+        transform: none;
+    }
+
+    .hp-grid {
+        grid-template-columns: 1fr 1fr;
+        margin-left: 0;
+    }
+
+
+
+    /* 1. Убираем фиксированную высоту и задаем безопасные отступы */
+    .hp-section {
+        height: auto !important;
+        padding: 80px 20px !important;
+        margin: 0 !important;
+        clear: both;
+    }
+
+    /* 2. Сбрасываем отрицательные сдвиги у ВСЕХ заголовков */
+    .hp-main-title,
+    .ap-title,
+    .b-title,
+    .other-title {
+        margin-left: 0 !important;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+
+    /* 3. Сбрасываем отступы подзаголовков */
+    .hp-main-subtitle,
+    .ap-subtitle,
+    .b-subtitle,
+    .other-subtitle {
+        margin-left: 0 !important;
+        margin-top: 15px !important;
+        margin-bottom: 50px !important;
+        max-width: 100%;
+    }
+
+     .hp-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        margin-left: 0 !important;
+        margin-top: 0 !important;
+        gap: 24px !important;
+        padding-bottom: 40px !important; /* ← ЭТО предотвращает наезд на следующую секцию */
+    }
+
+    /* 5. Карточки занимают всю ширину ячейки */
+    .hp-card {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+    .hp-grid .hp-card:nth-child(3) {
+        display: none !important;
+    }
+
+     .contact-section {
+        height: auto !important;       /* Снимаем фиксированную высоту */
+        padding: 60px 0 !important;    /* Уменьшаем отступы сверху/снизу */
+        display: flex !important;
+        flex-direction: column;        /* Элементы встают друг под другом */
+        align-items: center;           /* Центрируем содержимое */
+    }
+
+    .contact-container {
+        flex-direction: column;        /* Картинка сверху, форма снизу */
+        gap: 40px;                     /* Небольшой отступ между ними */
+        padding: 0 20px;
+        max-width: 100%;
+    }
+
+    /* Картинка */
+    .contact-img {
+        width: 100% !important;
+        max-width: 400px !important;   /* Ограничиваем ширину */
+        height: auto !important;
+        padding: 0 !important;         /* Убираем боковой отступ */
+        margin: 0 auto !important;     /* Центрируем саму картинку */
+        position: static !important;
+    }
+
+    /* Форма и текст */
+    .contact-content {
+        padding: 0 !important;
+        margin: 0 !important;
+        transform: none !important;    /* Убираем сдвиги */
+        align-items: center;           /* Центрируем форму */
+        width: 100%;
+    }
+
+    .contact-title {
+        margin: 0 0 30px 0 !important;
+        transform: none !important;
+        text-align: center;
+    }
+
+     .input-line {
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100%;
+    }
+    
+    .contact-submit {
+        transform: none !important;
+        margin: 20px auto 0 auto !important; /* Центрируем кнопку */
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    /* === ФУТЕР ДЛЯ ПЛАНШЕТОВ/НОУТБУКОВ (до 1274px) === */
+.footer {
+    height: auto !important; /* Убираем фиксированную высоту */
+    padding: 50px 30px !important; /* Компактные отступы по краям */
+}
+
+.footer-container {
+    padding: 0 !important; /* Отступы теперь заданы у .footer */
+    max-width: 100%;
+}
+
+/* Верхняя часть: Лого + Соцсети */
+.footer-top {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.footer-logo {
+    margin-left: 0 !important; /* ← КРИТИЧНО: возвращаем лого на экран */
+    margin-top: 0;
+}
+
+.footer-socials {
+    margin-right: 0 !important; /* ← КРИТИЧНО: возвращаем иконки на экран */
+    padding-top: 0;
+}
+
+/* Основная часть: Био + Ссылки */
+.footer-content {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 40px;
+    justify-content: space-between;
+}
+
+.footer-bio {
+    flex: 0 0 30%; /* Занимает ~30% ширины */
+    max-width: 350px;
+    margin-left: 0 !important; /* ← КРИТИЧНО: текст больше не уезжает влево */
+}
+
+.footer-bio p {
+    margin-left: 0 !important; /* ← КРИТИЧНО: сбрасываем сдвиг */
+    line-height: 1.5;
+}
+
+/* Сетка ссылок */
+.footer-links-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Гибкие колонки вместо фиксированных 130px */
+    gap: 20px 30px; /* Отступы между колонками и строками */
+    margin-left: 0 !important; /* ← КРИТИЧНО: убираем огромный сдвиг вправо */
+    margin-top: 0;
+    justify-items: start; /* Выравниваем ссылки по левому краю колонок */
+}
+
+/* Сбрасываем все "визуальные хаки" из основного CSS */
+.links-column1, .links-column2, .links-column3, .links-column4 {
+    margin-left: 0 !important;
+    text-align: left;
+}
+
+.links-column3 h3, .links-column4 h3,
+.links-column3 a, .links-column4 a {
+    transform: none !important; /* Убираем кривые горизонтальные сдвиги */
+    margin-left: 0 !important;
+    text-align: left;
+}
+
+.links-column1 a, .links-column2 a, .links-column3 a, .links-column4 a {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1.8;
+}
+
+.links-column1 h3, .links-column2 h3 {
+    text-align: left;
+    margin-top: 0;
+}
+}
+
+/* --- Мобильные устройства (до 768px) --- */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* В реальном проекте здесь обычно бургер-меню */
+    }
+
+    .hero-title {
+        font-size: 36px;
+    }
+
+    .hero-subtitle {
+        font-size: 18px;
+        padding: 0 20px;
+    }
+
+    .gallery-grid, .hp-grid {
+        grid-template-columns: 1fr; /* Всё в одну колонку */
+    }
+
+    .facts-content h2, .hp-main-title, .ap-title, .b-title, .other-title, .contact-title {
+        font-size: 32px;
+        margin-left: 0;
+        text-align: center;
+        white-space: normal;
+        transform: none;
+    }
+
+    .facts-content .subtitle, .hp-main-subtitle, .ap-subtitle, .b-subtitle, .other-subtitle {
+        margin-left: 0;
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .hp-card {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    /* Форма */
+    .contact-form {
+        max-width: 100%;
+        transform: none;
+    }
+
+    .input-line {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .contact-submit {
+        width: 100%;
+        transform: none;
+        margin-left: 0;
+    }
+
+    /* Футер */
+    .footer {
+        height: auto;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 40px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-logo, .footer-socials, .footer-bio p {
+        margin: 0;
+        justify-content: center;
+    }
+
+    .footer-links-grid {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important; /* 4 колонки в одну линию */
+        gap: 10px 6px !important; /* Минимальные отступы между колонками */
+        margin-left: 0 !important;
+        padding: 0 5px;
+        justify-items: center; /* Центрируем содержимое каждой колонки */
+        width: 100%;
+    }
+
+    .links-column3 h3, .links-column4 h3, .links-column3 a, .links-column4 a {
+        transform: none;
+        margin-left: 0;
+    }
+}
+
+/* --- Совсем маленькие экраны (до 480px) --- */
+@media (max-width: 320px) {
+    .footer-links-grid {
+        grid-template-columns: 1fr; /* Ссылки в футере в 1 колонку */
+    }
+    
+    .hero-btn {
+        width: 100%;
+        justify-content: center;
+    }
 }
