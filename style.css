@@ -813,7 +813,7 @@ header {
   margin-left: -42px;
 }
 
-@media (max-width: 1274px) {
+@media (max-width: 1278px) {
     .navbar {
         padding: 0 20px;
     }
@@ -837,11 +837,17 @@ header {
         width: 100%; /* Сбрасываем фиксированную ширину */
         height: auto;
         position: static; /* Убираем сдвиги */
-        transform: none;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 100%;          /* Растягиваем на всю высоту родителя */
+        object-fit: cover;     /* Заполняем пространство, сохраняя пропорции */
+        display: block;
     }
 
     .facts-container, .contact-container {
-        flex-direction: column; /* Стек: картинка сверху, текст снизу */
+        flex-direction: column; 
         align-items: center;
         gap: 40px;
     }
@@ -867,7 +873,30 @@ header {
         margin-left: 0;
     }
 
+     /* 1. Сбрасываем жёсткие размеры у контейнеров карточек */
+    .gallery-item,
+    .hp-card,
+    .hp-image-box {
+        height: auto !important;
+        min-height: auto !important;
+        padding: 0 !important; /* Убираем внутренние отступы, создающие белое поле */
+    }
 
+    /* 2. Заставляем картинку заполнить блок без пустот */
+    .gallery-item img,
+    .hp-image-box img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important; /* Масштабирует и обрезает края, чтобы не было дыр */
+        display: block !important; /* Убирает микро-отступ снизу у inline-картинок */
+        margin: 0 !important;
+    }
+
+    /* 3. Если сетка растягивает ячейки по высоте — выравниваем их */
+    .gallery-grid,
+    .hp-grid {
+        align-items: stretch !important;
+    }
 
     /* 1. Убираем фиксированную высоту и задаем безопасные отступы */
     .hp-section {
@@ -952,7 +981,7 @@ header {
 
     .contact-title {
         margin: 0 0 30px 0 !important;
-        transform: none !important;
+        /*transform: none !important;*/
         text-align: center;
     }
 
@@ -970,7 +999,6 @@ header {
         max-width: 300px;
     }
     
-    /* === ФУТЕР ДЛЯ ПЛАНШЕТОВ/НОУТБУКОВ (до 1274px) === */
 .footer {
     height: auto !important; /* Убираем фиксированную высоту */
     padding: 50px 30px !important; /* Компактные отступы по краям */
@@ -983,19 +1011,19 @@ header {
 
 /* Верхняя часть: Лого + Соцсети */
 .footer-top {
-    flex-direction: row;
+    flex-direction: row; /*располагает элементы в 1 линию*/
     justify-content: space-between;
     align-items: center;
     margin-bottom: 40px;
 }
 
 .footer-logo {
-    margin-left: 0 !important; /* ← КРИТИЧНО: возвращаем лого на экран */
+    margin-left: 0 !important;
     margin-top: 0;
 }
 
 .footer-socials {
-    margin-right: 0 !important; /* ← КРИТИЧНО: возвращаем иконки на экран */
+    margin-right: 0 !important;
     padding-top: 0;
 }
 
@@ -1029,7 +1057,6 @@ header {
     justify-items: start; /* Выравниваем ссылки по левому краю колонок */
 }
 
-/* Сбрасываем все "визуальные хаки" из основного CSS */
 .links-column1, .links-column2, .links-column3, .links-column4 {
     margin-left: 0 !important;
     text-align: left;
@@ -1054,102 +1081,356 @@ header {
 }
 }
 
-/* --- Мобильные устройства (до 768px) --- */
 @media (max-width: 768px) {
     .nav-links {
-        display: none; /* В реальном проекте здесь обычно бургер-меню */
+        display: none;
+    }
+
+    .hero-section {
+        padding: 40px 20px !important;
     }
 
     .hero-title {
-        font-size: 36px;
+        font-size: 32px !important;
+        line-height: 1.2 !important;
+        padding-left: 0 !important;
+        white-space: normal;
     }
 
     .hero-subtitle {
-        font-size: 18px;
-        padding: 0 20px;
+        font-size: 16px !important;
+        line-height: 1.5 !important;
+        padding: 0 15px;
+        margin-top: 15px;
     }
 
-    .gallery-grid, .hp-grid {
-        grid-template-columns: 1fr; /* Всё в одну колонку */
+    .hero-btn {
+        width: 90% !important;
+        max-width: 300px !important;
+        margin: 20px auto !important;
+        justify-content: center !important;
     }
 
-    .facts-content h2, .hp-main-title, .ap-title, .b-title, .other-title, .contact-title {
-        font-size: 32px;
-        margin-left: 0;
-        text-align: center;
+    .gallery-section {
+        padding: 40px 15px !important;
+        height: auto !important;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr !important; /* 2 колонки на мобильном */
+        gap: 15px !important;
+    }
+
+    .gallery-item {
+        position: static !important;
+        width: 100% !important;
+        height: auto !important;
+        transform: none !important;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    /* Сброс всех специальных классов галереи */
+    .item-pricing, .item-coaching, .item-hero, .item-testimonial, .item-last {
+        width: 100% !important;
+        height: auto !important;
+        position: static !important;
+        transform: none !important;
+        margin: 0 !important;
+    }
+
+    .facts-section {
+        padding: 60px 0 !important;
+    }
+
+    .facts-container {
+        flex-direction: column !important;
+        gap: 40px !important;
+        padding: 0 20px !important;
+    }
+
+    .facts-image {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .facts-image img {
+        width: 100% !important;
+        max-width: 400px !important;
+        height: auto !important;
+        margin: 0 !important;
+        position: static !important;
+    }
+
+    .facts-content {
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        text-align: center !important;
+        align-items: center !important;
+    }
+
+    .facts-content h2 {
+        font-size: 28px !important;
+        line-height: 1.2 !important;
+        margin: 0 0 15px 0 !important;
         white-space: normal;
-        transform: none;
     }
 
-    .facts-content .subtitle, .hp-main-subtitle, .ap-subtitle, .b-subtitle, .other-subtitle {
-        margin-left: 0;
+    .facts-content .subtitle {
+        width: 100% !important;
+        font-size: 15px !important;
+        line-height: 1.5 !important;
+        margin-bottom: 30px !important;
+        padding: 0 10px;
+    }
+
+    .facts-list {
+        width: 100% !important;
+        height: auto !important;
+        margin: 0 !important;
+    }
+
+    .facts-list ul {
+        padding: 0 10px;
+    }
+
+    .list-label {
         text-align: center;
-        max-width: 100%;
+        display: block;
+        margin-bottom: 15px;
+    }
+
+    .buy-btn {
+        width: 90% !important;
+        max-width: 250px !important;
+        margin: 20px auto !important;
+        justify-content: center !important;
+    }
+
+    .hp-section {
+        padding: 50px 15px !important;
+        height: auto !important;
+        margin: 0 !important;
+    }
+
+    .hp-container {
+        padding: 0 !important;
+        width: 100%;
+    }
+
+    .hp-main-title,
+    .ap-title,
+    .b-title,
+    .other-title {
+        font-size: 28px !important;
+        line-height: 1.2 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        text-align: center !important;
+        white-space: normal;
+    }
+
+    .hp-main-subtitle,
+    .ap-subtitle,
+    .b-subtitle,
+    .other-subtitle {
+        font-size: 15px !important;
+        line-height: 1.5 !important;
+        margin: 15px auto 40px auto !important;
+        padding: 0 15px !important;
+        text-align: center !important;
+        max-width: 100% !important;
+    }
+
+    .hp-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 15px !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
     .hp-card {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 15px !important;
+    }
+
+    .hp-image-box {
+        margin-bottom: 15px !important;
+    }
+
+    .hp-image-box img {
         width: 100%;
-        margin-left: 0;
-    }
-
-    /* Форма */
-    .contact-form {
-        max-width: 100%;
-        transform: none;
-    }
-
-    .input-line {
-        margin-left: 0;
-        width: 100%;
-    }
-
-    .contact-submit {
-        width: 100%;
-        transform: none;
-        margin-left: 0;
-    }
-
-    /* Футер */
-    .footer {
         height: auto;
     }
 
-    .footer-content {
-        flex-direction: column;
-        gap: 40px;
-        align-items: center;
-        text-align: center;
+    .contact-section {
+        padding: 60px 0 !important;
+        height: auto !important;
     }
 
-    .footer-logo, .footer-socials, .footer-bio p {
-        margin: 0;
-        justify-content: center;
+    .contact-container {
+        flex-direction: column !important;
+        gap: 40px !important;
+        padding: 0 20px !important;
+    }
+
+    .contact-img {
+        width: 100% !important;
+        max-width: 350px !important;
+        height: auto !important;
+        padding: 0 !important;
+        margin: 0 auto !important;
+    }
+
+    .contact-content {
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        align-items: center !important;
+    }
+
+    .contact-title {
+        font-size: 28px !important;
+        line-height: 1.2 !important;
+        margin: 0 0 30px 0 !important;
+        text-align: center !important;
+        white-space: normal;
+        transform: none !important;
+    }
+
+    .contact-form {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .input-group {
+        width: 100% !important;
+        margin-bottom: 20px !important;
+        transform: none !important;
+    }
+
+    .input-line {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+    }
+
+    .contact-submit {
+        width: 100% !important;
+        max-width: 300px !important;
+        margin: 20px auto 0 auto !important;
+        transform: none !important;
+    }
+
+    .footer {
+        height: auto !important;
+        padding: 40px 20px !important;
+    }
+
+    .footer-container {
+        padding: 0 !important;
+    }
+
+    .footer-top {
+        flex-direction: column !important;
+        gap: 20px !important;
+        margin-bottom: 40px !important;
+    }
+
+    .footer-logo {
+        margin: 0 !important;
+        justify-content: center !important;
+    }
+
+    .footer-socials {
+        margin: 0 !important;
+        justify-content: center !important;
+    }
+
+    .footer-content {
+        flex-direction: column !important;
+        gap: 40px !important;
+        align-items: center !important;
+    }
+
+    .footer-bio {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+    .footer-bio p {
+        margin: 0 !important;
+        text-align: center !important;
+        line-height: 1.6 !important;
+        font-size: 15px !important;
     }
 
     .footer-links-grid {
         display: grid !important;
-        grid-template-columns: repeat(4, 1fr) !important; /* 4 колонки в одну линию */
-        gap: 10px 6px !important; /* Минимальные отступы между колонками */
-        margin-left: 0 !important;
-        padding: 0 5px;
-        justify-items: center; /* Центрируем содержимое каждой колонки */
-        width: 100%;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 20px 10px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        justify-items: center !important;
     }
 
-    .links-column3 h3, .links-column4 h3, .links-column3 a, .links-column4 a {
-        transform: none;
-        margin-left: 0;
+    .links-column1,
+    .links-column2,
+    .links-column3,
+    .links-column4 {
+        margin: 0 !important;
+        padding: 0 !important;
+        text-align: center !important;
+    }
+
+    .links-column1 h3,
+    .links-column2 h3,
+    .links-column3 h3,
+    .links-column4 h3 {
+        font-size: 11px !important;
+        margin: 0 0 8px 0 !important;
+        text-align: center !important;
+        transform: none !important;
+    }
+
+    .links-column1 a,
+    .links-column2 a,
+    .links-column3 a,
+    .links-column4 a {
+        font-size: 11px !important;
+        line-height: 1.8 !important;
+        margin: 0 !important;
+        text-align: center !important;
+        transform: none !important;
+        display: block;
     }
 }
 
-/* --- Совсем маленькие экраны (до 480px) --- */
 @media (max-width: 320px) {
-    .footer-links-grid {
-        grid-template-columns: 1fr; /* Ссылки в футере в 1 колонку */
+    .hero-title,
+    .facts-content h2,
+    .hp-main-title,
+    .ap-title,
+    .b-title,
+    .other-title,
+    .contact-title {
+        font-size: 26px !important;
     }
-    
-    .hero-btn {
-        width: 100%;
-        justify-content: center;
+
+    .gallery-grid,
+    .hp-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .footer-links-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
     }
 }
