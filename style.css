@@ -821,7 +821,7 @@ header {
     .hero-title {
         font-size: 48px;
         line-height: 1.2;
-        white-space: normal; /* Разрешаем перенос строк */
+        white-space: normal; /* перенос строк разрешен */
     }
 
     .gallery-section {
@@ -830,19 +830,19 @@ header {
     }
 
     .gallery-grid {
-        grid-template-columns: 1fr 1fr; /* 2 колонки вместо 3 */
+        grid-template-columns: 1fr 1fr;
     }
 
     .gallery-item, .item-pricing, .item-coaching, .item-hero, .item-testimonial {
-        width: 100%; /* Сбрасываем фиксированную ширину */
+        width: 100%;
         height: auto;
-        position: static; /* Убираем сдвиги */
+        position: static; /* минус сдвиги */
     }
 
     .gallery-item img {
         width: 100%;
-        height: 100%;          /* Растягиваем на всю высоту родителя */
-        object-fit: cover;     /* Заполняем пространство, сохраняя пропорции */
+        height: 100%;          /* растягиваем на всю высоту родителя */
+        object-fit: cover;     /* заполняем пространство, сохраняя пропорции и не обрезая картинку*/
         display: block;
     }
 
@@ -873,32 +873,28 @@ header {
         margin-left: 0;
     }
 
-     /* 1. Сбрасываем жёсткие размеры у контейнеров карточек */
     .gallery-item,
     .hp-card,
     .hp-image-box {
         height: auto !important;
         min-height: auto !important;
-        padding: 0 !important; /* Убираем внутренние отступы, создающие белое поле */
+        padding: 0 !important;
     }
 
-    /* 2. Заставляем картинку заполнить блок без пустот */
     .gallery-item img,
     .hp-image-box img {
         width: 100% !important;
         height: 100% !important;
-        object-fit: cover !important; /* Масштабирует и обрезает края, чтобы не было дыр */
-        display: block !important; /* Убирает микро-отступ снизу у inline-картинок */
+        object-fit: cover !important; /* масштабирует и обрезает края, чтобы не было дырок */
+        display: block !important; /* убирает отступ снизу у inline-картинок */
         margin: 0 !important;
     }
 
-    /* 3. Если сетка растягивает ячейки по высоте — выравниваем их */
     .gallery-grid,
     .hp-grid {
-        align-items: stretch !important;
+        align-items: stretch !important; 
     }
 
-    /* 1. Убираем фиксированную высоту и задаем безопасные отступы */
     .hp-section {
         height: auto !important;
         padding: 80px 20px !important;
@@ -906,7 +902,6 @@ header {
         clear: both;
     }
 
-    /* 2. Сбрасываем отрицательные сдвиги у ВСЕХ заголовков */
     .hp-main-title,
     .ap-title,
     .b-title,
@@ -935,7 +930,6 @@ header {
         padding-bottom: 40px !important; /* ← ЭТО предотвращает наезд на следующую секцию */
     }
 
-    /* 5. Карточки занимают всю ширину ячейки */
     .hp-card {
         width: 100% !important;
         margin: 0 !important;
@@ -960,28 +954,25 @@ header {
         max-width: 100%;
     }
 
-    /* Картинка */
     .contact-img {
         width: 100% !important;
-        max-width: 400px !important;   /* Ограничиваем ширину */
+        max-width: 400px !important;   
         height: auto !important;
-        padding: 0 !important;         /* Убираем боковой отступ */
-        margin: 0 auto !important;     /* Центрируем саму картинку */
+        padding: 0 !important;         
+        margin: 0 auto !important;   
         position: static !important;
     }
 
-    /* Форма и текст */
     .contact-content {
         padding: 0 !important;
         margin: 0 !important;
-        transform: none !important;    /* Убираем сдвиги */
-        align-items: center;           /* Центрируем форму */
+        transform: none !important;    
+        align-items: center;         
         width: 100%;
     }
 
     .contact-title {
         margin: 0 0 30px 0 !important;
-        /*transform: none !important;*/
         text-align: center;
     }
 
@@ -994,24 +985,23 @@ header {
     
     .contact-submit {
         transform: none !important;
-        margin: 20px auto 0 auto !important; /* Центрируем кнопку */
+        margin: 20px auto 0 auto !important;
         width: 100%;
         max-width: 300px;
     }
     
 .footer {
-    height: auto !important; /* Убираем фиксированную высоту */
-    padding: 50px 30px !important; /* Компактные отступы по краям */
+    height: auto !important; 
+    padding: 50px 30px !important;
 }
 
 .footer-container {
-    padding: 0 !important; /* Отступы теперь заданы у .footer */
+    padding: 0 !important; 
     max-width: 100%;
 }
 
-/* Верхняя часть: Лого + Соцсети */
 .footer-top {
-    flex-direction: row; /*располагает элементы в 1 линию*/
+    flex-direction: row; 
     justify-content: space-between;
     align-items: center;
     margin-bottom: 40px;
@@ -1027,7 +1017,6 @@ header {
     padding-top: 0;
 }
 
-/* Основная часть: Био + Ссылки */
 .footer-content {
     flex-direction: row;
     align-items: flex-start;
@@ -1036,25 +1025,24 @@ header {
 }
 
 .footer-bio {
-    flex: 0 0 30%; /* Занимает ~30% ширины */
+    flex: 0 0 30%; 
     max-width: 350px;
-    margin-left: 0 !important; /* ← КРИТИЧНО: текст больше не уезжает влево */
+    margin-left: 0 !important;
 }
 
 .footer-bio p {
-    margin-left: 0 !important; /* ← КРИТИЧНО: сбрасываем сдвиг */
+    margin-left: 0 !important;
     line-height: 1.5;
 }
 
-/* Сетка ссылок */
 .footer-links-grid {
     flex: 1;
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Гибкие колонки вместо фиксированных 130px */
-    gap: 20px 30px; /* Отступы между колонками и строками */
-    margin-left: 0 !important; /* ← КРИТИЧНО: убираем огромный сдвиг вправо */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px 30px; 
+    margin-left: 0 !important; 
     margin-top: 0;
-    justify-items: start; /* Выравниваем ссылки по левому краю колонок */
+    justify-items: start;
 }
 
 .links-column1, .links-column2, .links-column3, .links-column4 {
@@ -1117,8 +1105,12 @@ header {
     }
 
     .gallery-grid {
-        grid-template-columns: 1fr 1fr !important; /* 2 колонки на мобильном */
+        grid-template-columns: 1fr 1fr !important; 
         gap: 15px !important;
+    }
+
+    .gallery-section .gallery-grid .gallery-item:nth-child(n+3) {
+        display: none !important;
     }
 
     .gallery-item {
