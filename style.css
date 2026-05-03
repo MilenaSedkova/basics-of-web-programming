@@ -1426,3 +1426,330 @@ header {
         grid-template-columns: repeat(2, 1fr) !important;
     }
 }
+
+/* анимации*/
+
+/* 1. Плавное изменение фона с linear-gradient */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero-section {
+  background: linear-gradient(-45deg, #EFEEE8, #cecbc4, #dcd8c6, #ece5be); /*4 цвета, расположенные под 45 градусами*/
+  background-size: 400% 400%; /*мы видим только часть градиента, т.к. фон растянулся на эти размеры и стал огромным*/
+  animation: gradientShift 15s ease infinite; 
+
+  animation-duration: 15s; /*длительность 1 цикла анимиации*/
+  animation-timing-function: ease; /*кривая скорости - плавный старт, ускорение, плавное торможение в конце*/
+  animation-iteration-count: infinite; /*количество повторений - бесконечный цикл*/
+}
+
+/* 2. Исчезновение через opacity */
+@keyframes fadeInOut {
+  0%, 100% { opacity: 1; } /*opacity - прозрачность, в начале и в конце 100% видимость, в половине - 30% */
+  50% { opacity: 0.3; }
+}
+
+.hero-subtitle {
+  animation: fadeInOut 4s ease-in-out infinite; /*медленный старт - усорение  в середине - плавное торможение в конце, бесконечное количество повторений*/
+}
+
+/* 3. Пульсация по горизонтали (translateX) */
+@keyframes pulseHorizontal {
+  0%, 100% { transform: translateX(0); } /*изначальное и конечное положение*/
+  50% { transform: translateX(15px); } /*среднеее положение*/
+}
+
+.button-arrow1 {
+  animation: pulseHorizontal 2s ease-in-out infinite; /*медленный старт, ускорение, замедление*/
+}
+
+/* 4. Масштабирование (scale) */
+@keyframes scalePulse {
+  0%, 100% { transform: scale(1); } /*100% исходного размера*/
+  50% { transform: scale(1.05); } /*увеличнение на 5%*/
+}
+
+.hero-btn {
+  animation: scalePulse 3s ease-in-out infinite;
+  transform-origin: center; /*растет от центра кнопки*/
+}
+
+/* 5. Вращение (rotate) */
+@keyframes rotateSlow {
+  from { transform: rotate(0deg); } /*базовое состояние*/
+  to { transform: rotate(360deg); } /*вращение вокргу совей оси*/
+}
+
+.footer-socials a img {
+  animation: rotateSlow 20s linear infinite; /*плавное вращение*/
+  /*display: inline-block;*/
+}
+
+/* 6. Искажение формы (skew) */
+@keyframes skewWave {
+  0%, 100% { transform: skewX(0deg); } /*skew искажает форму элемента по горизонтальной оси*/
+  25% { transform: skewX(3deg); } /*deg - сокращение от degree(градусы)*/
+  75% { transform: skewX(-3deg); }
+}
+
+.gallery-item:hover {
+  animation: skewWave 0.6s ease forwards; /*forwards оставит элемент в последнем состоянии после анимации, ease - плавнй старт, ускорение, торможение в конце*/
+}
+
+/* 8. Прозрачность + цвет границы */
+@keyframes borderGlow {
+  0%, 100% { 
+    opacity: 1; 
+    border-color: rgba(51, 51, 51, 0.3);
+  }
+  50% { 
+    opacity: 0.7; 
+    border-color: #8B7500;
+  }
+}
+
+.hp-card {
+  border: 2px solid transparent;
+  animation: borderGlow 4s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 49% { background-color: #333; }
+  50%, 100% { background-color: #555; }
+}
+
+.contact-submit {
+  animation: blink 2s step-end infinite; /*мгновенный переход без плавного перехода*/
+}
+
+/* 10. Изменение высоты */
+@keyframes heightPulse {
+  0%, 100% { height: 48px; }
+  50% { height: 24px; }
+}
+
+.buy-btn {
+  animation: heightPulse 3s ease-in-out infinite;
+}
+
+/* 12. Плавное появление с ease-in-out */
+@keyframes softAppear {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(-10px); }
+}
+
+.facts-content {
+  animation: softAppear 1.2s ease-in-out forwards; /*forwards - остается видимым после завершения*/
+}
+
+/* 13. Вертикальное перемещение с ease-out */
+@keyframes slideDown {
+  from { top: -10px; opacity: 0; }
+  to { top: 0; opacity: 1; }
+}
+
+.list-label {
+  position: relative;
+  animation: slideDown 0.8s ease-out forwards;
+}
+
+/* 14. Изменение фона с ease-in */
+@keyframes colorShift {
+  0% { background-color: #E4E2D3; }
+  50% { background-color: #87867e; }
+  100% { background-color: #E4E2D3; }
+}
+
+.hp-card {
+  animation: colorShift 6s ease-in infinite;
+}
+
+/* 16. Изменение границы с ease-in-out */
+@keyframes borderPulse {
+  0%, 100% { border-width: 1px; }
+  50% { border-width: 3px; }
+}
+
+.input-line {
+  animation: borderPulse 3s ease-in-out infinite;
+}
+
+/* 17. Тень с ease-in */
+@keyframes shadowGrow {
+  0% { box-shadow: 0 4px 8px rgba(0,0,0,0.1); } /*offSetX 0 - тень не смещается вправо/влево,  offSetY(4) - тень опускается ниже, blurRadius - радиус размытия(8) */
+  50% { box-shadow: 0 12px 24px rgba(0,0,0,0.2); }
+  100% { box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+}
+
+.gallery-item {
+  animation: shadowGrow 4s ease-in infinite; /*медленный старт - постепенный разгон*/
+}
+
+/* 19. Комбинированная: opacity + transform + cubic-bezier */
+@keyframes fadeSlide {
+  0% { 
+    opacity: 0; 
+    transform: translateX(-30px);
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateX(0);
+  }
+}
+
+.facts-list {
+  animation: fadeSlide 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.5s;
+}
+
+/* 20. Форма с кастомной кривой Безье */
+@keyframes morphShape {
+  0%, 100% { border-radius: 4px; }
+  50% { border-radius: 20px 4px 20px 4px; } /*углы меняются по часовой стрелке*/
+}
+
+.hp-image-box {
+  animation: morphShape 5s cubic-bezier(0.68, -0.6, 0.32, 1.6) infinite; /*cubic-bezier - пружинящая кривая*/
+}
+
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+.hp-image-box {
+  animation: floatGentle 4s ease-in-out infinite;
+}
+
+/* псевдоклассы*/
+
+/* :hover — изменение при наведении */
+.nav-links a:hover {
+  color: #8B7500;
+  transform: translateX(5px); /*движение в сторону контента*/
+  transition: all 0.3s ease; /*все происходит за 3 секунды плавно*/
+}
+
+/* :focus — при фокусе на интерактивных элементах */
+.contact-submit:focus {
+  outline: 2px solid #8B7500; /*добвавляет обводку вокруг элемента*/
+  outline-offset: 4px; /*отодвингает отводку на 4 px от текста*/
+  background-color: #444;
+  transition: all 0.2s ease; /*что менять, как долго, как(тут плавно), какая задержка(по умолчанию 0)*/
+}
+
+/* :nth-child(odd) — выбираем только нечетные */
+.facts-list li:nth-child(odd) {
+  background: linear-gradient(90deg, transparent, rgba(139, 117, 0, 0.05), transparent); /*90 - направление градиента, transparent - прозрачность, то есть добавляет прозрачность в начале и в конце*/
+  padding-left: 10px;
+  transition: padding 0.3s ease; /*меняем внутренние отступы за 0.3 сек плавно*/
+}
+
+.facts-list li:nth-child(odd):hover {
+  padding-left: 20px;
+}
+
+/* :first-child — первый элемент списка */
+.facts-list li:first-child:before {
+  content: "!!!";
+  color: #8B7500;
+  font-weight: bold;
+}
+
+/* :last-child — последний элемент */
+.links-column4 a:last-child {
+  position: relative; /*создает локльную систему кооординат для дочерних элементов*/
+}
+
+.links-column4 a:last-child::after {
+  content: "";
+  position: absolute; /*вырывает псевдоэлемент из поттока и позволяет точно позиционировать его через left*/
+  bottom: -10px;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: #8B7500;
+  opacity: 0; /*скрывает линию*/
+  transition: opacity 0.3s ease;
+}
+
+/*Возьми ::after последней ссылки в .links-column4, но только пока на неё наведён курсор*/
+.links-column4 a:last-child:hover::after {
+  opacity: 1; /*добавляет линию*/
+}
+
+
+/* псевдоэлементы */
+
+/* ::before — декоративный элемент перед контентом */
+.hero-title::before {
+  content: ""; /*без него before Не создается*/
+  position: absolute; /*можно позиционировать через right, left, top, bottom*/
+  top: -20px;
+  left: 50%; /*сдвигаем начало линии в центр родителя*/
+  transform: translateX(-50%); /*сдвигаем обратно на половину своей ширины*/
+  width: 150px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #8B7500, transparent); /*создаем градиент*/
+  border-radius: 2px; /*скругляем концы*/
+}
+
+/* ::after — декор после элемента */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #8B7500;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* ::selection — выделение текста пользователем */
+::selection {
+  background: #8B7500;
+  color: #fff;
+  text-shadow: none;
+}
+
+/* ::first-letter — первая буква абзаца */
+.footer-bio p::first-letter {
+  font-size: 32px;
+  font-weight: 700;
+  color: #8B7500;
+  float: left; /*обтекает текст вокург буквы*/
+  line-height: 0.8;
+  padding-right: 8px;
+  padding-top: 4px;
+}
+
+/* 2. Создаём псевдоэлемент-затемнитель */
+.gallery-item::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* top:0; right:0; bottom:0; left:0 */
+  background: rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  /*pointer-events: none; /* Не мешает кликам по картинке */
+}
+
+/* 3. Показываем при наведении */
+.gallery-item:hover::before {
+  opacity: 1;
+}
+
+.hp-main-subtitle::first-line {
+  color: #8B7500;        
+  font-weight: 700;          
+  text-transform: uppercase;  /* Верхний регистр */
+  letter-spacing: 1.2px;   
+}
