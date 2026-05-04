@@ -873,32 +873,28 @@ header {
         margin-left: 0;
     }
 
-     /* 1. Сбрасываем жёсткие размеры у контейнеров карточек */
     .gallery-item,
     .hp-card,
     .hp-image-box {
         height: auto !important;
         min-height: auto !important;
-        padding: 0 !important; /* Убираем внутренние отступы, создающие белое поле */
+        padding: 0 !important;
     }
 
-    /* 2. Заставляем картинку заполнить блок без пустот */
     .gallery-item img,
     .hp-image-box img {
         width: 100% !important;
         height: 100% !important;
-        object-fit: cover !important; /* Масштабирует и обрезает края, чтобы не было дыр */
-        display: block !important; /* Убирает микро-отступ снизу у inline-картинок */
+        object-fit: cover !important; /* масштабирует и обрезает края, чтобы не было дыр */
+        display: block !important; /* убирает микро-отступ снизу у inline-картинок */
         margin: 0 !important;
     }
 
-    /* 3. Если сетка растягивает ячейки по высоте — выравниваем их */
     .gallery-grid,
     .hp-grid {
         align-items: stretch !important; /*растягиваем все дочерние элементы до высоты самого высокого*/
     }
 
-    /* 1. Убираем фиксированную высоту и задаем безопасные отступы */
     .hp-section {
         height: auto !important;
         padding: 80px 20px !important;
@@ -930,7 +926,7 @@ header {
         margin-left: 0 !important;
         margin-top: 0 !important;
         gap: 24px !important;
-        padding-bottom: 40px !important; /* предотвращает наезд на следующую секцию */
+        padding-bottom: 40px !important;
     }
 
     .hp-card {
@@ -946,7 +942,7 @@ header {
         height: auto !important;    
         padding: 60px 0 !important; 
         display: flex !important;
-        flex-direction: column;        /* Элементы встают друг под другом */
+        flex-direction: column;        /* элементы встают друг под другом */
         align-items: center;       
     }
 
@@ -957,7 +953,6 @@ header {
         max-width: 100%;
     }
 
-    /* Картинка */
     .contact-img {
         width: 100% !important;
         max-width: 400px !important;  
@@ -1048,7 +1043,7 @@ header {
     margin-top: 0;
     justify-items: start;
 }
-
+а
 .links-column1, .links-column2, .links-column3, .links-column4 {
     margin-left: 0 !important;
     text-align: left;
