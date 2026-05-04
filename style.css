@@ -1035,7 +1035,7 @@ header {
 }
 
 .footer-links-grid {
-    flex: 1;
+    flex: 1; /*элемент занимает все свободное пространоство, равномерно распределяя между остальными элементами*/
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px 30px; 
@@ -1043,7 +1043,7 @@ header {
     margin-top: 0;
     justify-items: start;
 }
-а
+a
 .links-column1, .links-column2, .links-column3, .links-column4 {
     margin-left: 0 !important;
     text-align: left;
