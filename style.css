@@ -1429,7 +1429,7 @@ header {
 
 /* анимации*/
 
-/* 1. Плавное изменение фона с linear-gradient */
+/* плавное изменение фона с linear-gradient */
 @keyframes gradientShift {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -1456,7 +1456,7 @@ header {
   animation: fadeInOut 4s ease-in-out infinite; /*медленный старт - усорение  в середине - плавное торможение в конце, бесконечное количество повторений*/
 }
 
-/* 3. Пульсация по горизонтали (translateX) */
+/* пульсация по горизонтали (translateX) */
 @keyframes pulseHorizontal {
   0%, 100% { transform: translateX(0); } /*изначальное и конечное положение*/
   50% { transform: translateX(15px); } /*среднеее положение*/
@@ -1466,7 +1466,7 @@ header {
   animation: pulseHorizontal 2s ease-in-out infinite; /*медленный старт, ускорение, замедление*/
 }
 
-/* 4. Масштабирование (scale) */
+/* масштабирование (scale) */
 @keyframes scalePulse {
   0%, 100% { transform: scale(1); } /*100% исходного размера*/
   50% { transform: scale(1.05); } /*увеличнение на 5%*/
@@ -1477,7 +1477,7 @@ header {
   transform-origin: center; /*растет от центра кнопки*/
 }
 
-/* 5. Вращение (rotate) */
+/* вращение (rotate) */
 @keyframes rotateSlow {
   from { transform: rotate(0deg); } /*базовое состояние*/
   to { transform: rotate(360deg); } /*вращение вокргу совей оси*/
@@ -1488,7 +1488,7 @@ header {
   /*display: inline-block;*/
 }
 
-/* 6. Искажение формы (skew) */
+/* Искажение формы (skew) */
 @keyframes skewWave {
   0%, 100% { transform: skewX(0deg); } /*skew искажает форму элемента по горизонтальной оси*/
   25% { transform: skewX(3deg); } /*deg - сокращение от degree(градусы)*/
@@ -1499,7 +1499,6 @@ header {
   animation: skewWave 0.6s ease forwards; /*forwards оставит элемент в последнем состоянии после анимации, ease - плавнй старт, ускорение, торможение в конце*/
 }
 
-/* 8. Прозрачность + цвет границы */
 @keyframes borderGlow {
   0%, 100% { 
     opacity: 1; 
@@ -1525,7 +1524,7 @@ header {
   animation: blink 2s step-end infinite; /*мгновенный переход без плавного перехода*/
 }
 
-/* 10. Изменение высоты */
+/* изменение высоты */
 @keyframes heightPulse {
   0%, 100% { height: 48px; }
   50% { height: 24px; }
@@ -1535,7 +1534,7 @@ header {
   animation: heightPulse 3s ease-in-out infinite;
 }
 
-/* 12. Плавное появление с ease-in-out */
+/* плавное появление с ease-in-out */
 @keyframes softAppear {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(-10px); }
@@ -1545,7 +1544,7 @@ header {
   animation: softAppear 1.2s ease-in-out forwards; /*forwards - остается видимым после завершения*/
 }
 
-/* 13. Вертикальное перемещение с ease-out */
+/* вертикальное перемещение с ease-out */
 @keyframes slideDown {
   from { top: -10px; opacity: 0; }
   to { top: 0; opacity: 1; }
@@ -1556,7 +1555,7 @@ header {
   animation: slideDown 0.8s ease-out forwards;
 }
 
-/* 14. Изменение фона с ease-in */
+/* изменение фона с ease-in */
 @keyframes colorShift {
   0% { background-color: #E4E2D3; }
   50% { background-color: #87867e; }
@@ -1567,7 +1566,7 @@ header {
   animation: colorShift 6s ease-in infinite;
 }
 
-/* 16. Изменение границы с ease-in-out */
+/* изменение границы с ease-in-out */
 @keyframes borderPulse {
   0%, 100% { border-width: 1px; }
   50% { border-width: 3px; }
@@ -1577,7 +1576,7 @@ header {
   animation: borderPulse 3s ease-in-out infinite;
 }
 
-/* 17. Тень с ease-in */
+/* тень с ease-in */
 @keyframes shadowGrow {
   0% { box-shadow: 0 4px 8px rgba(0,0,0,0.1); } /*offSetX 0 - тень не смещается вправо/влево,  offSetY(4) - тень опускается ниже, blurRadius - радиус размытия(8) */
   50% { box-shadow: 0 12px 24px rgba(0,0,0,0.2); }
@@ -1588,7 +1587,7 @@ header {
   animation: shadowGrow 4s ease-in infinite; /*медленный старт - постепенный разгон*/
 }
 
-/* 19. Комбинированная: opacity + transform + cubic-bezier */
+/* комбинированная: opacity + transform + cubic-bezier */
 @keyframes fadeSlide {
   0% { 
     opacity: 0; 
@@ -1605,7 +1604,7 @@ header {
   animation-delay: 0.5s;
 }
 
-/* 20. Форма с кастомной кривой Безье */
+/* форма с кастомной кривой Безье */
 @keyframes morphShape {
   0%, 100% { border-radius: 4px; }
   50% { border-radius: 20px 4px 20px 4px; } /*углы меняются по часовой стрелке*/
