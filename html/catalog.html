@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moon Coach — Catalog</title>
+  
+  <!-- Шрифты -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+  
+  <!-- Основные стили -->
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/catalog.css" />
+</head>
+<body>
+
+  <!-- Шапка как на главной -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="logo">
+        <img src="../pictures/logo.svg" alt="Moon Coach" onerror="this.style.display='none'">
+        <span style="font-family: 'Libre Baskerville', serif; font-weight: 700; font-size: 20px; color: #333;">Moon Coach</span>
+      </div>
+
+      <div class="header-right">
+        <ul class="nav-links">
+          <li><a href="../index.html">Back to Home</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero секция каталога -->
+  <section class="catalog-hero">
+    <h1 class="catalog-title">Our Coaching Services</h1>
+    <p class="catalog-subtitle">Discover our personalized coaching programs designed to transform your life</p>
+  </section>
+
+  <!-- Панель управления -->
+  <div class="catalog-controls-wrapper">
+    <div class="catalog-controls">
+      <div class="search-wrapper">
+        <input type="text" id="searchInput" placeholder="Search services...">
+      </div>
+      
+      <select class="control-select" id="sortSelect">
+        <option value="default">Sort by: Default</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+        <option value="name-asc">Name: A to Z</option>
+        <option value="name-desc">Name: Z to A</option>
+        <option value="rating-desc">Rating: High to Low</option>
+      </select>
+      
+      <select class="control-select" id="categorySelect">
+        <option value="all">All Categories</option>
+        <option value="personal">Personal Coaching</option>
+        <option value="group">Group Sessions</option>
+        <option value="online">Online Courses</option>
+        <option value="wellness">Wellness</option>
+        <option value="career">Career</option>
+      </select>
+    </div>
+
+    <!-- Кнопки методов массивов -->
+    <div class="methods-grid" id="methodsGrid"></div>
+  </div>
+
+  <!-- Контейнер для карточек -->
+  <main class="catalog-container">
+    <div class="cards-grid" id="cardsContainer"></div>
+    <div class="no-results" id="noResults" style="display: none;">
+      <div class="no-results-icon"></div>
+      <h3>No services found</h3>
+      <p>Try adjusting your search or filters to find what you're looking for.</p>
+    </div>
+  </main>
+
+  <!-- Футер -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <span style="font-family: 'Libre Baskerville', serif; font-size: 22px; font-weight: 700; color: #333;">Moon Coach</span>
+        </div>
+      </div>
+      <div class="footer-content">
+        <div class="footer-bio">
+          <p style="font-family: 'Libre Baskerville', serif; font-size: 22px; line-height: 1.35; color: #333;">
+            Moon Coach — minimalistic template for coaching businesses.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="../json/catalog.js"></script>
+</body>
+</html>

@@ -1,0 +1,330 @@
+/* === СТИЛИ ДЛЯ КАТАЛОГА === */
+
+/* Hero секция */
+.catalog-hero {
+  background-color: #EFEEE8;
+  padding: 80px 20px 60px;
+  text-align: center;
+  border-bottom: 1px solid #d1cfc8;
+}
+
+.catalog-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 66px;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 20px 0;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.catalog-subtitle {
+  font-family: 'Oxygen', sans-serif;
+  font-size: 22px;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* Панель управления */
+.catalog-controls-wrapper {
+  background-color: #f4f1ea;
+  border-bottom: 1px solid #d1cfc8;
+  padding: 0;
+}
+
+.catalog-controls {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 30px 60px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.search-wrapper {
+  flex: 1;
+  min-width: 250px;
+}
+
+#searchInput {
+  width: 100%;
+  padding: 14px 20px;
+  border: 1px solid #d1cfc8;
+  border-radius: 4px;
+  font-family: 'Oxygen', sans-serif;
+  font-size: 15px;
+  background: #fff;
+  transition: border-color 0.3s;
+}
+
+#searchInput:focus {
+  outline: none;
+  border-color: #8B7500;
+}
+
+.control-select {
+  padding: 14px 20px;
+  border: 1px solid #d1cfc8;
+  border-radius: 4px;
+  font-family: 'Oxygen', sans-serif;
+  font-size: 15px;
+  background: #fff;
+  cursor: pointer;
+  min-width: 180px;
+  transition: border-color 0.3s;
+}
+
+.control-select:focus {
+  outline: none;
+  border-color: #8B7500;
+}
+
+/* Сетка кнопок методов */
+.methods-grid {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 20px 60px 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.method-btn {
+  padding: 10px 18px;
+  background: #333;
+  color: #EFEEE8;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Oxygen', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.3s;
+  letter-spacing: 0.3px;
+}
+
+.method-btn:hover {
+  background: #555;
+  transform: translateY(-2px);
+}
+
+.method-btn.active {
+  background: #8B7500;
+  box-shadow: 0 4px 12px rgba(139, 117, 0, 0.3);
+}
+
+/* Контейнер каталога */
+.catalog-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  min-height: 600px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 32px;
+}
+
+/* Карточка услуги */
+.service-card {
+  background: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid #d1cfc8;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+  border-color: #8B7500;
+}
+
+.card-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  background: #E4E2D3;
+}
+
+.card-content {
+  padding: 25px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-category {
+  display: inline-block;
+  padding: 6px 14px;
+  background: #E4E2D3;
+  border-radius: 20px;
+  font-family: 'Oxygen', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #555;
+  margin-bottom: 12px;
+  width: fit-content;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.card-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 12px 0;
+  line-height: 1.2;
+}
+
+.card-description {
+  font-family: 'Oxygen', sans-serif;
+  font-size: 15px;
+  color: #666;
+  line-height: 1.6;
+  margin: 0 0 20px 0;
+  flex: 1;
+}
+
+.card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+}
+
+.card-price {
+  font-family: 'Oxygen', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #333;
+}
+
+.card-rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Oxygen', sans-serif;
+  font-size: 15px;
+  color: #8B7500;
+  font-weight: 400;
+}
+
+/* Сообщение "нет результатов" */
+.no-results {
+  text-align: center;
+  padding: 100px 20px;
+  font-family: 'Oxygen', sans-serif;
+  color: #666;
+}
+
+.no-results-icon {
+  font-size: 64px;
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+.no-results h3 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 28px;
+  color: #333;
+  margin: 0 0 10px 0;
+}
+
+.no-results p {
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Адаптив */
+@media (max-width: 1278px) {
+  .catalog-title {
+    font-size: 48px;
+  }
+  
+  .catalog-controls {
+    padding: 24px 30px;
+  }
+  
+  .methods-grid {
+    padding: 16px 30px 24px;
+  }
+  
+  .cards-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .catalog-title {
+    font-size: 36px;
+  }
+  
+  .catalog-subtitle {
+    font-size: 17px;
+    padding: 0 15px;
+  }
+  
+  .catalog-controls {
+    flex-direction: column;
+    padding: 20px;
+    align-items: stretch;
+  }
+  
+  .search-wrapper {
+    min-width: 100%;
+  }
+  
+  .control-select {
+    width: 100%;
+    min-width: auto;
+  }
+  
+  .methods-grid {
+    overflow-x: auto;
+    padding: 16px 20px 20px;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+  
+  .method-btn {
+    flex-shrink: 0;
+    font-size: 12px;
+    padding: 8px 14px;
+  }
+  
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .catalog-container {
+    padding: 40px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .catalog-title {
+    font-size: 32px;
+  }
+  
+  .card-title {
+    font-size: 20px;
+  }
+  
+  .card-price {
+    font-size: 18px;
+  }
+}
