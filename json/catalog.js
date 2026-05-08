@@ -1,11 +1,11 @@
-// === ЭТАП 1: Массив из 15 объектов ===
+// массив из 15 объектов ===
 const services = [
   {
     id: 1,
     name: "Life Transformation",
     description: "Deep personal coaching to unlock your potential and create lasting change.",
     price: 149,
-    rating: 4.9,
+    rating: 4.9, /*number - дробное число*/
     category: "personal",
     image: "../pictures/pricing.jpg",
     duration: "12 weeks"
@@ -152,28 +152,29 @@ const services = [
   }
 ];
 
-// === Глобальные переменные ===
-let currentServices = [...services];
-const cardsContainer = document.getElementById('cardsContainer');
+// глобальные переменные, связывают javaScript с HTML, без них скрипт бы не знал, куда вставлять карточки и  ===
+let currentServices = [...services]; /*let - переменная, которую можно менять позже, currentSErvice -имя переменной, = присваивание,  [...services] - создает поверхностную копию массива ... - spread-оператор*/
+const cardsContainer = document.getElementById('cardsContainer'); /*document -  интерактивная модель моей страницы, котрую бразуре создал в своей памяти после того, как прочитал твой HTML-файл, getElementById - метод, cardsContainer - аргумент, который передаем*/
 const noResults = document.getElementById('noResults');
 const searchInput = document.getElementById('searchInput');
 const sortSelect = document.getElementById('sortSelect');
 const categorySelect = document.getElementById('categorySelect');
 const methodsGrid = document.getElementById('methodsGrid');
 
-// === ЭТАП 2: 10 методов массивов ===
-const arrayMethods = [
-  { 
+// этап 2: 10 методов массивов 
+const arrayMethods = [ /*массив, хранящий конфгурацию кнопок*/
+  {   /* {} - создаем объект(струткру данных, которая создает струутуру данных ключ-значение) */
+    /*объект с 2 свойствами, name - текст на кнопке, method - функция, которая выполнится при клике */
     name: "filter (price < 100)", 
-    method: () => services.filter(s => s.price < 100)
-  },
+    method: () => services.filter(s => s.price < 100) /*создает новый массив, и возвращает его */
+  }, /* это разделитель, создали 1 обект теперь следующий */
   { 
-    name: "map (add discount)", 
-    method: () => services.map(s => ({...s, discountedPrice: Math.round(s.price * 0.9)}))
+    name: "map (add discount)",/*map преобразует каждый элемент и возвращает новый массив той же длины, map не меняет оригальные объекты, а создает новые */
+    method: () => services.map(s => ({...s, discountedPrice: Math.round(s.price * 0.9)})) /*...s создаем копию элемента s и добавляем новое поле discountedPrice. Math.Round - считает цену со скдикой 10% и этот метод округляет число до ближайшего целого*/
   },
   { 
     name: "sort (by rating)", 
-    method: () => [...services].sort((a, b) => b.rating - a.rating)
+    method: () => [...services].sort((a, b) => b.rating - a.rating) /*method - имя свойства в объекте, мы назвали его так, () - параметры, этот метод не принимает никаких параметров, => слева парметры, справа - тело фцнкции, service.filter - то, что функция вернет при вызове, результат нажатия, => вместо return*/
   },
   { 
     name: "filter + sort", 
@@ -194,7 +195,7 @@ const arrayMethods = [
     }
   },
   { 
-    name: "some (has 5★)", 
+    name: "some (has 5 stars)", 
     method: () => services.some(s => s.rating === 5.0) ? services.filter(s => s.rating === 5.0) : []
   },
   { 
@@ -211,7 +212,7 @@ const arrayMethods = [
   }
 ];
 
-// === Функция отрисовки карточек ===
+// функция отрисовки карточек ===
 function renderCards(data, showDiscount = false) {
   cardsContainer.innerHTML = '';
   
@@ -251,7 +252,7 @@ function renderCards(data, showDiscount = false) {
   });
 }
 
-// === Фильтрация и сортировка (Этап 3) ===
+// фильтрация и сортировка (Этап 3) ===
 function applyFilters() {
   let result = [...services];
   
@@ -291,7 +292,7 @@ function applyFilters() {
   renderCards(result);
 }
 
-// === Генерация кнопок методов ===
+// генерация кнопок методов ===
 function renderMethodButtons() {
   arrayMethods.forEach((item) => {
     const btn = document.createElement('button');
@@ -311,7 +312,7 @@ function renderMethodButtons() {
     methodsGrid.appendChild(btn);
   });
   
-  // Кнопка сброса
+  // кнопка сброса
   const resetBtn = document.createElement('button');
   resetBtn.className = 'method-btn';
   resetBtn.textContent = '⟲ Reset';
@@ -326,7 +327,7 @@ function renderMethodButtons() {
   methodsGrid.appendChild(resetBtn);
 }
 
-// === Инициализация ===
+// инициализация ===
 function init() {
   renderCards(services);
   renderMethodButtons();
