@@ -27,6 +27,13 @@
   line-height: 1.7;
 }
 
+.logo-text {
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #333;
+}
+
 /* Панель управления */
 .catalog-controls-wrapper {
   background-color: #f4f1ea;
@@ -246,6 +253,26 @@
   font-size: 16px;
   margin: 0;
 }
+
+/* === СТИЛИ ДЛЯ ЦЕН === */
+.price-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* заменяет margin-right из inline-стилей */
+}
+
+.price-original {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 14px;
+}
+
+.price-current {
+  font-size: 20px;
+  font-weight: 700;
+  color: #333;
+}
+
 
 /* Адаптив */
 @media (max-width: 1278px) {
