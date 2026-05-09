@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moon Coach — Favorites</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/favorites.css" />
+</head>
+<body>
+
+  <!-- Шапка (такая же как в каталоге) -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="logo">
+        <img src="../pictures/logo.svg" alt="Moon Coach">
+      </div>
+      <div class="header-right">
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="catalog.html">Catalog</a></li>
+          <li><a href="favorites.html" class="active">Favorites (<span id="favoritesCount">0</span>)</a></li>
+          <li><a href="cart.html">Cart (<span id="cartCount">0</span>)</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <section class="page-hero">
+    <h1 class="page-title">My Favorites</h1>
+    <p class="page-subtitle">Services you've saved for later</p>
+  </section>
+
+  <main class="favorites-container">
+    <div class="cards-grid" id="favoritesContainer">
+      <div class="loader">Loading favorites</div>
+    </div>
+    
+    <div class="no-results" id="noFavorites" style="display: none;">
+      <div class="no-results-icon"></div>
+      <h3>Your favorites list is empty</h3>
+      <p><a href="catalog.html">Browse our catalog</a> to add services you love.</p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <span class="logo-text">Moon Coach</span>
+        </div>
+      </div>
+      <div class="footer-content">
+        <div class="footer-bio">
+          <p>Moon Coach — minimalistic template for coaching businesses.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="../js/api.js"></script>
+  <script type="module" src="../js/favorites.js"></script>
+</body>
+</html>

@@ -274,6 +274,119 @@
 }
 
 
+ /* Пагинация */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-top: 40px;
+      padding: 20px;
+    }
+    
+    .pagination button {
+      padding: 10px 16px;
+      border: 1px solid #d1cfc8;
+      background: #fff;
+      border-radius: 4px;
+      font-family: 'Oxygen', sans-serif;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .pagination button:hover:not(:disabled) {
+      background: #8B7500;
+      color: #fff;
+      border-color: #8B7500;
+    }
+
+    .pagination button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    
+    .pagination span {
+      font-family: 'Oxygen', sans-serif;
+      color: #666;
+    }
+    
+    /* Фильтр по цене */
+    .price-filter {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .price-filter input {
+      width: 80px;
+      padding: 8px 12px;
+      border: 1px solid #d1cfc8;
+      border-radius: 4px;
+      font-family: 'Oxygen', sans-serif;
+    }
+    /* Кнопки избранного/корзины на карточке */
+    .card-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid #eee;
+    }
+    
+    .btn-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border: 1px solid #d1cfc8;
+      border-radius: 50%;
+      background: #fff;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 16px;
+    }
+    
+    .btn-icon:hover {
+      background: #8B7500;
+      color: #fff;
+      border-color: #8B7500;
+    }
+
+
+    .btn-icon.active {
+      background: #8B7500;
+      color: #fff;
+    }
+    
+    /* Загрузчик */
+    .loader {
+      text-align: center;
+      padding: 40px;
+      font-family: 'Oxygen', sans-serif;
+      color: #666;
+    }
+    
+    .loader::after {
+      content: "⋯";
+      animation: dots 1.5s steps(5, end) infinite;
+    }
+    
+    @keyframes dots {
+      0%, 20% { content: "."; }
+      40% { content: ".."; }
+      60%, 100% { content: "..."; }
+    }
+
+     @media (max-width: 768px) {
+      .price-filter {
+        flex-wrap: wrap;
+      }
+      .pagination {
+        flex-wrap: wrap;
+      }
+    }
+
 /* Адаптив */
 @media (max-width: 1278px) {
   .catalog-title {
@@ -353,5 +466,55 @@
   
   .card-price {
     font-size: 18px;
+  }
+}
+/* === МОБИЛЬНАЯ АДАПТАЦИЯ === */
+@media (max-width: 768px) {
+  .catalog-controls {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 20px !important;
+  }
+  
+  .search-wrapper,
+  .control-select,
+  .price-filter {
+    width: 100%;
+  }
+  
+  .price-filter {
+    justify-content: center;
+  }
+  
+  .cards-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .pagination {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  
+  .card-actions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .catalog-title {
+    font-size: 32px !important;
+  }
+  
+  .catalog-subtitle {
+    font-size: 16px !important;
+    padding: 0 15px;
+  }
+  
+  .card-title {
+    font-size: 18px !important;
+  }
+  
+  .card-price {
+    font-size: 18px !important;
   }
 }

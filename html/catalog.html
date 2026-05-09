@@ -11,9 +11,11 @@
   
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/catalog.css" />
+
 </head>
 <body>
 
+  <!-- Шапка с навигацией -->
   <header class="header">
     <nav class="navbar">
       <div class="logo">
@@ -22,7 +24,10 @@
 
       <div class="header-right">
         <ul class="nav-links">
-          <li><a href="../index.html">Back to Home</a></li>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="catalog.html" class="active">Catalog</a></li>
+          <li><a href="favorites.html">Favorites (<span id="favoritesCount">0</span>)</a></li>
+          <li><a href="cart.html">Cart (<span id="cartCount">0</span>)</a></li>
         </ul>
       </div>
     </nav>
@@ -35,12 +40,13 @@
 
   <div class="catalog-controls-wrapper">
     <div class="catalog-controls">
+
       <div class="search-wrapper">
         <input type="text" id="searchInput" placeholder="Search services...">
       </div>
       
       <select class="control-select" id="sortSelect">
-        <option value="default">Sort by: Default</option>
+        <option value="">Sort by: Default</option>
         <option value="price-asc">Price: Low to High</option>
         <option value="price-desc">Price: High to Low</option>
         <option value="name-asc">Name: A to Z</option>
@@ -49,26 +55,33 @@
       </select>
       
       <select class="control-select" id="categorySelect">
-        <option value="all">All Categories</option>
-        <option value="personal">Personal Coaching</option>
-        <option value="group">Group Sessions</option>
-        <option value="online">Online Courses</option>
-        <option value="wellness">Wellness</option>
-        <option value="career">Career</option>
+        <option value="">All Categories</option>
+        <!-- Заполняется динамически из API -->
       </select>
+      
+      <div class="price-filter">
+        <input type="number" id="minPrice" placeholder="Min $" min="0">
+        <span>—</span>
+        <input type="number" id="maxPrice" placeholder="Max $" min="0">
+      </div>
     </div>
-
-    <div class="methods-grid" id="methodsGrid"></div>
   </div>
 
   <main class="catalog-container">
-
-    <div class="cards-grid" id="cardsContainer"></div> 
+    <div class="cards-grid" id="cardsContainer">
+      <div class="loader">Loading services</div>
+    </div>
     
     <div class="no-results" id="noResults" style="display: none;">
       <div class="no-results-icon"></div>
       <h3>No services found</h3>
       <p>Try adjusting your search or filters to find what you're looking for.</p>
+    </div>
+    
+    <div class="pagination" id="pagination" style="display: none;">
+      <button id="prevPage">← Prev</button>
+      <span id="pageInfo">Page 1</span>
+      <button id="nextPage">Next →</button>
     </div>
   </main>
 
@@ -76,19 +89,26 @@
     <div class="footer-container">
       <div class="footer-top">
         <div class="footer-logo">
-          <span style="font-family: 'Libre Baskerville', serif; font-size: 22px; font-weight: 700; color: #333;">Moon Coach</span>
+          <span class="logo-text">Moon Coach</span>
         </div>
       </div>
       <div class="footer-content">
         <div class="footer-bio">
-          <p style="font-family: 'Libre Baskerville', serif; font-size: 22px; line-height: 1.35; color: #333;">
-            Moon Coach — minimalistic template for coaching businesses.
-          </p>
+          <p>Moon Coach — minimalistic template for coaching businesses.</p>
         </div>
       </div>
     </div>
   </footer>
 
-  <script src="../json/catalog.js"></script>
+  <template id="notificationTemplate">
+    <div class="notification">
+      <span class="notification__message"></span>
+      <button class="notification__close">&times;</button>
+    </div>
+  </template>
+
+  <!-- Скрипты: сначала API, потом логика -->
+  <script type="module" src="../js/api.js"></script>
+  <script type="module" src="../js/catalog.js"></script>
 </body>
 </html>

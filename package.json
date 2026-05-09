@@ -1,0 +1,11 @@
+{
+  "name": "moon-coach-lab",
+  "version": "1.0.0",
+  "description": "Lab work with JSON Server",
+  "scripts": {
+    "server": "json-server --watch data/db.json --port 3000"
+  },
+  "dependencies": {
+    "json-server": "^0.17.4"
+  }
+}

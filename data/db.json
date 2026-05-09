@@ -1,0 +1,228 @@
+{
+  "services": [
+    {
+      "id": 1,
+      "name": "Life Transformation",
+      "description": "Deep personal coaching to unlock your potential and create lasting change in all life areas.",
+      "price": 149,
+      "rating": 4.9,
+      "category": "personal",
+      "image": "../pictures/pricing.jpg",
+      "duration": "12 weeks",
+      "inStock": true
+    },
+    {
+      "id": 2,
+      "name": "Career Accelerator",
+      "description": "Strategic guidance for professionals ready to level up their career and income.",
+      "price": 199,
+      "rating": 4.8,
+      "category": "career",
+      "image": "../pictures/path-to-about1.png",
+      "duration": "8 weeks",
+      "inStock": true
+    },
+    {
+      "id": 3,
+      "name": "Mindfulness Mastery",
+      "description": "Learn practical meditation and mindfulness techniques for daily stress relief.",
+      "price": 89,
+      "rating": 4.7,
+      "category": "wellness",
+      "image": "../pictures/path-to-about2.png",
+      "duration": "4 weeks",
+      "inStock": true
+    },
+    {
+      "id": 4,
+      "name": "Group Power Session",
+      "description": "High-energy group coaching with accountability partners and expert facilitation.",
+      "price": 59,
+      "rating": 4.6,
+      "category": "group",
+      "image": "../pictures/path-to-about3.png",
+      "duration": "6 weeks",
+      "inStock": false
+    },
+    {
+      "id": 5,
+      "name": "Online Confidence Course",
+      "description": "Self-paced video course with worksheets to build unshakeable self-confidence.",
+      "price": 79,
+      "rating": 4.5,
+      "category": "online",
+      "image": "../pictures/path-to-about1.png",
+      "duration": "Self-paced",
+      "inStock": true
+    },
+    {
+      "id": 6,
+      "name": "Relationship Harmony",
+      "description": "Coaching for couples and individuals to build healthier, more fulfilling relationships.",
+      "price": 169,
+      "rating": 4.9,
+      "category": "personal",
+      "image": "../pictures/path-to-blog2.png",
+      "duration": "10 weeks",
+      "inStock": true
+    },
+    {
+      "id": 7,
+      "name": "Wellness Reset",
+      "description": "Holistic program combining nutrition, movement, and mindset for total wellbeing.",
+      "price": 129,
+      "rating": 4.7,
+      "category": "wellness",
+      "image": "../pictures/path-to-blog3.png",
+      "duration": "6 weeks",
+      "inStock": true
+    },
+    {
+      "id": 8,
+      "name": "Leadership Launch",
+      "description": "Develop executive presence and leadership skills for emerging managers.",
+      "price": 219,
+      "rating": 4.8,
+      "category": "career",
+      "image": "../pictures/path-to-blog2.png",
+      "duration": "12 weeks",
+      "inStock": true
+    },
+    {
+      "id": 9,
+      "name": "Stress-Free Living",
+      "description": "Practical tools and strategies to manage stress and create calm in chaos.",
+      "price": 99,
+      "rating": 4.6,
+      "category": "wellness",
+      "image": "../pictures/path-to-image1.png",
+      "duration": "4 weeks",
+      "inStock": true
+    },
+    {
+      "id": 10,
+      "name": "Team Synergy Workshop",
+      "description": "Interactive group session to improve communication and collaboration in teams.",
+      "price": 299,
+      "rating": 4.9,
+      "category": "group",
+      "image": "../pictures/path-to-blog2.png",
+      "duration": "1 day",
+      "inStock": false
+    },
+    {
+      "id": 11,
+      "name": "Digital Detox Program",
+      "description": "Reclaim your time and focus with a structured approach to healthy tech habits.",
+      "price": 69,
+      "rating": 4.4,
+      "category": "online",
+      "image": "../pictures/path-to-blog3.png",
+      "duration": "21 days",
+      "inStock": true
+    },
+    {
+      "id": 12,
+      "name": "Purpose Discovery",
+      "description": "Clarify your values, vision, and mission to live with intention and direction.",
+      "price": 139,
+      "rating": 4.8,
+      "category": "personal",
+      "image": "../pictures/path-to-others1.png",
+      "duration": "8 weeks",
+      "inStock": true
+    },
+    {
+      "id": 13,
+      "name": "Public Speaking Pro",
+      "description": "Overcome fear and master the art of compelling presentations and speeches.",
+      "price": 159,
+      "rating": 4.7,
+      "category": "career",
+      "image": "../pictures/path-to-others2.png",
+      "duration": "6 weeks",
+      "inStock": true
+    },
+    {
+      "id": 14,
+      "name": "Sleep & Recovery",
+      "description": "Science-backed strategies to improve sleep quality and daily energy levels.",
+      "price": 79,
+      "rating": 4.5,
+      "category": "wellness",
+      "image": "../pictures/path-to-others3.png",
+      "duration": "4 weeks",
+      "inStock": true
+    },
+    {
+      "id": 15,
+      "name": "Mastermind Circle",
+      "description": "Exclusive small-group coaching with peer support and expert monthly sessions.",
+      "price": 349,
+      "rating": 5,
+      "category": "group",
+      "image": "../pictures/path-to-others1.png",
+      "duration": "3 months",
+      "inStock": true
+    }
+  ],
+  "favorites": [
+    {
+      "serviceId": "3",
+      "addedAt": "2026-05-09T11:06:47.892Z",
+      "id": 3
+    },
+    {
+      "serviceId": "5",
+      "addedAt": "2026-05-09T14:09:35.710Z",
+      "id": 6
+    },
+    {
+      "serviceId": "6",
+      "addedAt": "2026-05-09T14:09:38.397Z",
+      "id": 7
+    },
+    {
+      "serviceId": "2",
+      "addedAt": "2026-05-09T14:26:08.089Z",
+      "id": 8
+    },
+    {
+      "serviceId": "1",
+      "addedAt": "2026-05-09T14:26:40.052Z",
+      "id": 9
+    }
+  ],
+  "cart": [
+    {
+      "serviceId": "4",
+      "quantity": 1,
+      "addedAt": "2026-05-09T14:09:58.599Z",
+      "id": 1
+    },
+    {
+      "serviceId": "1",
+      "quantity": 1,
+      "addedAt": "2026-05-09T14:10:00.129Z",
+      "id": 2
+    },
+    {
+      "serviceId": "6",
+      "quantity": 1,
+      "addedAt": "2026-05-09T14:10:02.272Z",
+      "id": 3
+    },
+    {
+      "serviceId": "3",
+      "quantity": 1,
+      "addedAt": "2026-05-09T14:24:11.365Z",
+      "id": 4
+    },
+    {
+      "serviceId": "2",
+      "quantity": 1,
+      "addedAt": "2026-05-09T14:26:41.976Z",
+      "id": 5
+    }
+  ]
+}
