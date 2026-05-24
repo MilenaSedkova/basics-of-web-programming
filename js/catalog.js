@@ -1,6 +1,6 @@
 /**
- * Каталог услуг — работа с JSON Server
- * ВСЯ фильтрация/сортировка/пагинация происходит на сервере!
+ * каталог услуг — работа с JSON Server
+ * вся фильтрация/сортировка/пагинация происходит на сервере!
  */
 
 import {
@@ -170,9 +170,9 @@ function setupEventListeners() {
   });
   
   // Сортировка
-  elements.sortSelect.addEventListener('change', (e) => {
-    const [sortBy, order] = e.target.value.split('-');
-    state.filters.sortBy = sortBy === '' ? '' : sortBy;
+  elements.sortSelect.addEventListener('change', (e) => { //вешаем обработчик события change на элемент sortSelect (это <select> в HTML).
+    const [sortBy, order] = e.target.value.split('-'); //e - объект события,  получает выбранное значение из <select>, разбиваем строку по дефису на массив
+    state.filters.sortBy = sortBy === '' ? '' : sortBy; 
     state.filters.order = order || 'asc';
     state.currentPage = 1;
     loadServices();

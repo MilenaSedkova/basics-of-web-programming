@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moon Coach — Register</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/form.css" />
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <div class="logo"><img src="../pictures/logo.svg" alt="Moon Coach"></div>
+      <div class="header-right">
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="catalog.html">Catalog</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <section class="page-hero">
+    <h1 class="page-title">Create Account</h1>
+    <p class="page-subtitle">Join us to start your transformation</p>
+  </section>
+
+  <main class="form-container">
+    <form id="registerForm" novalidate>
+      <div class="form-group">
+        <label for="phone">Phone Number (Belarus only)</label>
+        <input type="text" id="phone" class="form-control" placeholder="+375 (XX) XXX-XX-XX" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" class="form-control" required>
+      </div>
+
+      <div class="form-group">
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" class="form-control" required>
+      </div>
+
+      <div class="form-group checkbox-group">
+        <input type="checkbox" id="autoPassword">
+        <label for="autoPassword" style="margin:0;">Generate password automatically</label>
+      </div>
+
+      <div class="form-row" id="passwordFields">
+        <div class="form-group" style="position: relative;">
+          <label for="password">Password</label>
+          <div style="position: relative; display: flex; align-items: center; width: 100%;">
+            <input type="password" id="password" class="form-control" required style="padding-right: 45px;">
+            <button type="button" class="toggle-password-btn" data-target="password" style="position: absolute; right: 12px; background: none; border: none; cursor: pointer; font-size: 18px; z-index: 10; line-height: 1; padding: 0;">👁️</button>
+          </div>
+        </div>
+        <div class="form-group" style="position: relative;">
+          <label for="confirmPassword">Confirm Password</label>
+          <div style="position: relative; display: flex; align-items: center; width: 100%;">
+            <input type="password" id="confirmPassword" class="form-control" required style="padding-right: 45px;">
+            <button type="button" class="toggle-password-btn" data-target="confirmPassword" style="position: absolute; right: 12px; background: none; border: none; cursor: pointer; font-size: 18px; z-index: 10; line-height: 1; padding: 0;">👁️</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" class="form-control" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="middleName">Middle Name (Optional)</label>
+          <input type="text" id="middleName" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="nickname">Nickname</label>
+          <div style="display:flex; gap:10px; width: 100%;">
+            <input type="text" id="nickname" class="form-control" readonly required style="flex-grow:1;">
+            <button type="button" id="generateNickBtn" style="padding: 0 15px; height: 48px; flex-shrink: 0;">Generate</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group checkbox-group">
+        <input type="checkbox" id="agreement" required>
+        <label for="agreement" style="margin:0;">I accept the <a href="#">User Agreement</a> <span class="required">*</span></label>
+      </div>
+
+      <button type="submit" id="registerBtn" class="submit-btn" disabled>Register</button>
+    </form>
+  </main>
+  
+  <script type="module" src="../js/register.js"></script>
+</body>
+</html>

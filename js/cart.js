@@ -10,6 +10,10 @@ import {
   showNotification
 } from './api.js';
 
+import {
+  getCurrentUser 
+} from './middleware/auth.js';
+
 const elements = {
   cartItems: document.getElementById('cartItems'),
   emptyCart: document.getElementById('emptyCart'),
@@ -133,27 +137,60 @@ function updateTotals(subtotal) {
 }
 
 async function handleCheckout() {
+  const currentUser = getCurrentUser();
+  
+  if (!currentUser) {
+    showNotification('Пожалуйста, войдите в систему', 'error');
+    window.location.href = 'register.html'; 
+    return;
+  }
+
   try {
-    // Имитация процесса оплаты
     elements.checkoutBtn.disabled = true;
     elements.checkoutBtn.textContent = 'Processing...';
+
+    const cartItems = await getCartWithDetails();
     
-    // Здесь можно добавить реальную интеграцию с платёжной системой
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    // Очищаем корзину на сервере
+    if (cartItems.length === 0) {
+      showNotification('Корзина пуста', 'error');
+      elements.checkoutBtn.disabled = false;
+      elements.checkoutBtn.textContent = 'Proceed to Checkout';
+      return;
+    }
+
+    const total = cartItems.reduce((sum, item) => sum + item.price * item.cartQuantity, 0);
+
+    const orderData = {
+      userId: currentUser.id,
+      items: cartItems.map(item => ({
+        serviceId: item.id,
+        name: item.name,
+        price: item.price,
+        quantity: item.cartQuantity
+      })),
+      total: total,
+      status: 'completed',
+      createdAt: new Date().toISOString()
+    };
+
+    // 1. Создаем заказ
+    const orderRes = await fetch('http://localhost:3000/orders', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(orderData)
+    });
+
+    if (!orderRes.ok) throw new Error('Order creation failed');
+
+    // 2. Очищаем корзину
     await clearCart();
     
-    showNotification('Purchase successful! Thank you!');
-    
-    // Перенаправляем или обновляем
-    setTimeout(() => {
-      window.location.href = 'catalog.html';
-    }, 2000);
+    showNotification('Purchase successful! Saved to orders.');
+    setTimeout(() => window.location.href = 'catalog.html', 2000);
     
   } catch (error) {
-    console.error('Checkout failed:', error);
-    showNotification('Checkout failed. Please try again.', 'error');
+    console.error('Checkout error:', error);
+    showNotification('Checkout failed. Try again.', 'error');
     elements.checkoutBtn.disabled = false;
     elements.checkoutBtn.textContent = 'Proceed to Checkout';
   }

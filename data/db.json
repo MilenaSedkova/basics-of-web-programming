@@ -168,11 +168,6 @@
   ],
   "favorites": [
     {
-      "serviceId": "3",
-      "addedAt": "2026-05-09T11:06:47.892Z",
-      "id": 3
-    },
-    {
       "serviceId": "5",
       "addedAt": "2026-05-09T14:09:35.710Z",
       "id": 6
@@ -191,38 +186,121 @@
       "serviceId": "1",
       "addedAt": "2026-05-09T14:26:40.052Z",
       "id": 9
-    }
-  ],
-  "cart": [
+    },
     {
       "serviceId": "4",
-      "quantity": 1,
-      "addedAt": "2026-05-09T14:09:58.599Z",
-      "id": 1
+      "addedAt": "2026-05-11T06:51:49.725Z",
+      "id": 10
     },
     {
-      "serviceId": "1",
-      "quantity": 1,
-      "addedAt": "2026-05-09T14:10:00.129Z",
-      "id": 2
+      "serviceId": "9",
+      "addedAt": "2026-05-11T06:58:46.945Z",
+      "id": 11
+    }
+  ],
+  "cart": [],
+  "users": [
+    {
+      "id": "1",
+      "phone": "+375291234567",
+      "email": "user@example.com",
+      "dateOfBirth": "2000-05-15",
+      "password": "hashed_password",
+      "firstName": "Иван",
+      "lastName": "Петров",
+      "middleName": "Иванович",
+      "nickname": "IvaPet123",
+      "role": "customer",
+      "agreementAccepted": true,
+      "createdAt": "2024-01-15T10:30:00Z"
     },
     {
-      "serviceId": "6",
-      "quantity": 1,
-      "addedAt": "2026-05-09T14:10:02.272Z",
-      "id": 3
+      "phone": "375291445007",
+      "email": "sedkovamilena80@gmail.com",
+      "dateOfBirth": "2000-05-04",
+      "password": "AutoGen123!@",
+      "firstName": "milena",
+      "lastName": "sedkova",
+      "middleName": "",
+      "nickname": "milsed275vip",
+      "role": "customer",
+      "agreementAccepted": true,
+      "createdAt": "2026-05-24T13:33:17.979Z",
+      "id": "r4WtyzJ"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "Органические яблоки",
+      "category": "fruits",
+      "price": 5.99,
+      "image": "path/to/image.jpg",
+      "description": "Свежие органические яблоки"
+    }
+  ],
+  "orders": [
+    {
+      "id": "1",
+      "userId": "1",
+      "items": [
+        {
+          "productId": "1",
+          "name": "Органические яблоки",
+          "price": 5.99,
+          "quantity": 2
+        }
+      ],
+      "total": 11.98,
+      "status": "completed",
+      "createdAt": "2024-01-15T10:30:00Z"
     },
     {
-      "serviceId": "3",
-      "quantity": 1,
-      "addedAt": "2026-05-09T14:24:11.365Z",
-      "id": 4
+      "userId": "r4WtyzJ",
+      "items": [
+        {
+          "serviceId": 2,
+          "name": "Career Accelerator",
+          "price": 199,
+          "quantity": 1
+        },
+        {
+          "serviceId": 9,
+          "name": "Stress-Free Living",
+          "price": 99,
+          "quantity": 1
+        },
+        {
+          "serviceId": 5,
+          "name": "Online Confidence Course",
+          "price": 79,
+          "quantity": 1
+        }
+      ],
+      "total": 377,
+      "status": "completed",
+      "createdAt": "2026-05-24T13:38:43.287Z",
+      "id": "Wogks-J"
+    }
+  ],
+  "feedback": [
+    {
+      "id": "1",
+      "userId": "1",
+      "userNickname": "IvaPet123",
+      "productId": "1",
+      "rating": 5,
+      "comment": "Отличные яблоки, очень свежие!",
+      "createdAt": "2024-01-15T10:30:00Z"
     },
     {
+      "userId": "r4WtyzJ",
+      "userNickname": "milsed275vip",
       "serviceId": "2",
-      "quantity": 1,
-      "addedAt": "2026-05-09T14:26:41.976Z",
-      "id": 5
+      "rating": 5,
+      "comment": "пролджролдвапродсролденгшщз",
+      "createdAt": "2026-05-24T13:39:00.784Z",
+      "id": "I5lWF1n"
     }
   ]
 }

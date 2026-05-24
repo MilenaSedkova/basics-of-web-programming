@@ -38,7 +38,7 @@ async function apiRequest(endpoint, params = {}) {
   }
 }
 
-// === SERVICES ===
+//  services
 
 /**
  * Получить услуги с фильтрацией, сортировкой и пагинацией
@@ -76,10 +76,10 @@ export async function getServiceById(id) {
   return data[0];
 }
 
-// === FAVORITES ===
+// favourites
 
 /**
- * Получить список избранного
+ * получить список избранного
  */
 
 
@@ -90,6 +90,8 @@ export async function getFavorites() {
 }
 
 /**
+ * 
+ * 
  * Добавить в избранное
  */
 export async function addToFavorites(serviceId) {

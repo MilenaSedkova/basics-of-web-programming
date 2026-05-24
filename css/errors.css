@@ -1,0 +1,14 @@
+.error-message {
+  display: block;
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+input.invalid {
+  border-color: #dc3545;
+}
+
+.required {
+  color: #dc3545;
+}
