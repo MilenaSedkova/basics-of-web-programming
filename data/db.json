@@ -223,10 +223,24 @@
       "lastName": "sedkova",
       "middleName": "",
       "nickname": "milsed275vip",
-      "role": "customer",
+      "role": "admin",
       "agreementAccepted": true,
       "createdAt": "2026-05-24T13:33:17.979Z",
       "id": "r4WtyzJ"
+    },
+    {
+      "phone": "375295006769",
+      "email": "viloliyn@gmail.com",
+      "dateOfBirth": "2005-01-01",
+      "password": "123456H1v?",
+      "firstName": "Igor",
+      "lastName": "Igorev",
+      "middleName": "",
+      "nickname": "Igor12",
+      "role": "customer",
+      "agreementAccepted": true,
+      "createdAt": "2026-05-24T14:19:12.884Z",
+      "id": "upH6BjW"
     }
   ],
   "products": [
@@ -281,6 +295,27 @@
       "status": "completed",
       "createdAt": "2026-05-24T13:38:43.287Z",
       "id": "Wogks-J"
+    },
+    {
+      "userId": "upH6BjW",
+      "items": [
+        {
+          "serviceId": 5,
+          "name": "Online Confidence Course",
+          "price": 79,
+          "quantity": 1
+        },
+        {
+          "serviceId": 9,
+          "name": "Stress-Free Living",
+          "price": 99,
+          "quantity": 1
+        }
+      ],
+      "total": 178,
+      "status": "completed",
+      "createdAt": "2026-05-24T14:19:49.803Z",
+      "id": "LRRukUQ"
     }
   ],
   "feedback": [
@@ -301,6 +336,15 @@
       "comment": "пролджролдвапродсролденгшщз",
       "createdAt": "2026-05-24T13:39:00.784Z",
       "id": "I5lWF1n"
+    },
+    {
+      "userId": "upH6BjW",
+      "userNickname": "Igor12",
+      "serviceId": "5",
+      "rating": 4,
+      "comment": "товар не оправдал ожидания, но тем не менее, не плохо!",
+      "createdAt": "2026-05-24T14:22:23.237Z",
+      "id": "pKHHhGV"
     }
   ]
 }

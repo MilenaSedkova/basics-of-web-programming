@@ -23,6 +23,19 @@
           <li><a href="#">About Pages<img src = "arrow.svg" alt = ""></a></li>
           <li><a href="#">Others<img src = "arrow.svg" alt = ""></a></li>
           <li><a href="../html/catalog.html">Catalog<img src="arrow.svg" alt=""></a></li>
+
+          <li id="adminPanelBtn" style="display: none;">
+             <a href="html/admin.html" style="color: #8B7500; font-weight: 700;">Admin Panel</a>
+         </li>
+
+         <li id="authBlock">
+            <a href="html/login.html" id="loginLink">Log In</a>
+          </li>
+
+          <li id="feedbackLinkBtn" style="display: none;">
+             <a href="html/feedback.html">Leave Feedback</a>
+          </li>
+
         </ul>
       </div>
     </nav>
@@ -326,6 +339,43 @@
 
 </footer>
 
+
+<script type="module">
+    import { updateAdminButton, getCurrentUser } from './js/middleware/auth.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Управляем кнопкой админки для администратора
+      updateAdminButton();
+
+      const currentUser = getCurrentUser();
+      const feedbackBtn = document.getElementById('feedbackLinkBtn');
+      const authBlock = document.getElementById('authBlock');
+
+      // 2. Управляем кнопкой отзывов в зависимости от роли
+      if (currentUser && currentUser.role === 'customer') {
+        feedbackBtn.style.display = 'block'; // Показываем только обычным клиентам
+      } else {
+        feedbackBtn.style.display = 'none';   // Прячем от гостей и админов
+      }
+
+      // 3. Управляем блоком входа/выхода (Log In / Log Out)
+      if (currentUser) {
+        authBlock.innerHTML = `
+          <span style="font-family: 'Oxygen', sans-serif; font-size: 16px; color: #333; font-weight: 500; margin-right: 10px;">
+            👤 ${currentUser.nickname || currentUser.firstName}
+          </span>
+          <a href="#" id="logoutBtn" style="color: #dc3545; font-weight: 700; margin-left: 5px;">Log Out</a>
+        `;
+
+        // Логика кнопки Выход
+        document.getElementById('logoutBtn').addEventListener('click', (e) => {
+          e.preventDefault();
+          localStorage.removeItem('currentUser'); // Очищаем сессию
+          window.location.reload(); // Перезагружаем страницу для обновления шапки
+        });
+      }
+    });
+  </script>
 </body>
 
 </html>
