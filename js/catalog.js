@@ -10,7 +10,8 @@ import {
   addToCart,
   getFavorites,
   getCart,
-  showNotification
+  showNotification,
+  getServiceById
 } from './api.js';
 
 // состояние приложения
@@ -209,6 +210,65 @@ function setupEventListeners() {
     loadServices();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+
+  // Открытие модалки
+  elements.cardsContainer.addEventListener('click', async (e) => {
+    const card = e.target.closest('.service-card');
+    const isFavoriteBtn = e.target.closest('.btn-favorite');
+    const isCartBtn = e.target.closest('.btn-cart');
+
+    if (card && !isFavoriteBtn && !isCartBtn) {
+      await openServiceModal(card.dataset.id);
+    }
+  });
+}
+
+// === Модальное окно услуги ===
+async function openServiceModal(serviceId) {
+  try {
+    const service = await getServiceById(serviceId);
+    if (!service) return;
+
+    const modal = document.getElementById('serviceModal');
+    modal.innerHTML = `
+      <div class="modal-content">
+        <button class="modal-close">&times;</button>
+        <div class="modal-body">
+          <img src="${service.image}" alt="${service.name}" class="modal-image">
+          <div class="modal-details">
+            <span class="card-category">${service.category}</span>
+            <h2>${service.name}</h2>
+            <p class="modal-desc">${service.description}</p>
+            <div class="modal-meta">
+              <span class="card-price">$${service.price}</span>
+              <span class="card-rating">${'★'.repeat(Math.round(service.rating))} ${service.rating}</span>
+            </div>
+            <p class="modal-duration"><strong>Duration:</strong> ${service.duration || 'N/A'}</p>
+            <button class="btn-primary btn-modal-cart" data-id="${service.id}">Add to Cart 🛒</button>
+          </div>
+        </div>
+      </div>
+    `;
+
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+
+    modal.querySelector('.modal-close').onclick = closeServiceModal;
+    modal.onclick = (e) => { if (e.target === modal) closeServiceModal(); };
+    
+    modal.querySelector('.btn-modal-cart').onclick = async (e) => {
+      await handleCartClick(e, service.id);
+      closeServiceModal();
+    };
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function closeServiceModal() {
+  const modal = document.getElementById('serviceModal');
+  modal.style.display = 'none';
+  document.body.style.overflow = '';
 }
 
 // === Добавление в избранное ===

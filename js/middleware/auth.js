@@ -22,6 +22,11 @@ export function requireAdmin() {
 
 /**
  * Возвращает текущего пользователя или null
+ * лезет в локальное хранилище браузера, достает оттуда строку currentUser и с помощью JSON.parse()
+ * превращает ее обратно в удобный объект JavaScript(где лежат id, role, name и т.д.)
+ * 
+ * благодаря try catch Если в хранилище лежит какая-то битая строка, из-за которой скрипт
+ *  мог бы упасть, функция просто тихо вернёт null
  */
 export function getCurrentUser() {
   try {
@@ -47,6 +52,7 @@ export function requireAuth() {
 
 /**
  * Обновляет видимость кнопки админки в шапке
+ * 
  */
 export function updateAdminButton() {
   const adminBtn = document.getElementById('adminPanelBtn');

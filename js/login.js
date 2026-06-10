@@ -12,19 +12,36 @@ function init() {
   markFieldRequired(passwordInput);
 
   // Логика показа/скрытия пароля (глаз)
+  //querySelectorAll — находит вообще все кнопки с таким классом на странице
   document.querySelectorAll('.toggle-password-btn').forEach(btn => {
     btn.addEventListener('click', function(e) {
+      //e.preventDefault(); — отменяет стандартное поведение браузера. 
+      // Если эта кнопка случайно оказалась внутри формы <form>, 
+      // браузер может подумать, что её нажали для отправки данных, и перезагрузит страницу.
+      //  Эта строчка блокирует такое.
+
       e.preventDefault();
+
+      
+      //e.stopPropagation()-
+      //Она запрещает клику подниматься выше к родительским элементам. 
+      //Клик остаётся строго внутри кнопки и не тревожит остальные обработчики на форме.
       e.stopPropagation();
+
+      //скрипт смотрит на саму кнопку (за неё отвечает слово this) и читает 
+      //значение её специального атрибута data-target.
       const targetId = this.getAttribute('data-target');
+
+      //JavaScript берёт считанный ID и находит на странице то самое поле ввода пароля, 
+      // с которым кнопка связана.
       const input = document.getElementById(targetId);
       if (input) {
         if (input.type === 'password') {
           input.type = 'text';
-          this.textContent = '🙈';
+          this.textContent = '\u{1F648}';
         } else {
           input.type = 'password';
-          this.textContent = '👁️';
+          this.textContent = '\u{1F441}';
         }
       }
     });
@@ -76,7 +93,7 @@ async function handleLogin(e) {
     localStorage.setItem('currentUser', JSON.stringify(user));
     showNotification(`Welcome back, ${user.nickname || user.firstName}! ✨`);
 
-    // Перенаправляем в зависимости от роли
+    // Перенаправляем в зависимости от роли(пауза в полторы секунды)
     setTimeout(() => {
       if (user.role === 'admin') {
         window.location.href = 'admin.html'; // Админа сразу ведем в панель

@@ -5,6 +5,8 @@ import { showError, clearError, markFieldRequired } from './utils/formHelpers.js
 import { generateNickname, checkNicknameUnique } from './utils/nickNameGenerator.js';
 import { showNotification } from './api.js';
 
+
+//кэширование элементов
 const form = document.getElementById('registerForm');
 const fields = {
   phone: document.getElementById('phone'),
@@ -26,28 +28,40 @@ let nicknameAttempts = 0;
 
 function init() {
   // Визуально помечаем обязательные поля
+
+  //Встроенный метод Object.values(fields) берёт твой объект, 
+  //полностью игнорирует текстовые ключи (phone, email), 
+  //достаёт из него только значения (то есть живые HTML-инпуты) 
+  //и упаковывает их в обычный чистый массив JavaScript.
+
+  //Как только Object.values превратил элементы в массив, у нас появляется доступ к методу .forEach()
   Object.values(fields).forEach(field => {
-    if (field && field.hasAttribute('required') && field.type !== 'checkbox') {
-      markFieldRequired(field);
+    if (field && field.hasAttribute('required') && field.type !== 'checkbox') //не галочка
+    {
+      markFieldRequired(field); //помечаем поле обязательным
     }
   });
 
-  // 1. ИСПРАВЛЕННЫЙ И НАДЕЖНЫЙ ПЕРЕКЛЮЧАТЕЛЬ ПАРОЛЯ
   document.querySelectorAll('.toggle-password-btn').forEach(btn => {
     btn.addEventListener('click', function(e) {
       e.preventDefault();
       e.stopPropagation(); // Останавливаем всплытие, чтобы инпут не забирал фокус
       
+
+      //Возьми кнопку, на которую только что кликнули, посмотри в её HTML-тег, 
+      //найди там специальную метку с именем data-target и запиши её значение в переменную targetId».
+
+      //this - текущий элемент, с которым мы сейчас работаем 
       const targetId = this.getAttribute('data-target');
       const passwordInput = document.getElementById(targetId);
       
       if (passwordInput) {
         if (passwordInput.type === 'password') {
           passwordInput.type = 'text';
-          this.textContent = '🙈';
+          this.textContent = '\u{1F648}';
         } else {
           passwordInput.type = 'password';
-          this.textContent = '👁️';
+          this.textContent = '\u{1F441}';
         }
       }
     });
@@ -76,7 +90,8 @@ function init() {
 
   // Автогенерация пароля (скрываем всю строку)
   fields.autoPassword.addEventListener('change', (e) => {
-    const isAuto = e.target.checked;
+    const isAuto = e.target.checked; //target - элемент, с которым мы работали, cjecked - стоит ли галочка во 
+    // внутрннем переключаетеле, ркз-татт true/false записывается в перменную IsAuto
     const passwordFieldsRow = document.getElementById('passwordFields');
     
     if (isAuto) {
@@ -87,7 +102,9 @@ function init() {
       fields.confirmPassword.removeAttribute('required');
       clearError(fields.password);
       clearError(fields.confirmPassword);
-    } else {
+    } 
+    //откат
+    else {
       passwordFieldsRow.style.display = 'grid';
       fields.password.value = '';
       fields.confirmPassword.value = '';
@@ -97,7 +114,6 @@ function init() {
     checkFormValidity();
   });
 
-  // 2. ИСПРАВЛЕННАЯ ГЕНЕРАЦИЯ НИКНЕЙМА
   generateNickBtn.addEventListener('click', async (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -130,7 +146,7 @@ function init() {
         showError(fields.nickname, 'Лимит попыток исчерпан. Введите никнейм вручную.');
         fields.nickname.removeAttribute('readonly');
         fields.nickname.value = '';
-        fields.nickname.focus();
+        fields.nickname.focus(); //ставиим курсор в поле 
       }
     } else {
       fields.nickname.removeAttribute('readonly');
@@ -177,7 +193,13 @@ function validateField(input) {
 }
 
 function checkFormValidity() {
+
+  //Если какого-то инпута нет на странице
+  //field будет равен null. Команда return внутри .forEach просто досрочно завершает
+  //текущий шаг цикла для этого поля и переходит к следующему, не ломая код.
   let isValid = true;
+
+  //превращаем объект с данными в простой массив, чтобы перебрать через foreach
   Object.values(fields).forEach(field => {
     if (!field) return;
     if (field.type === 'checkbox' && field.hasAttribute('required') && !field.checked) isValid = false;
@@ -203,8 +225,9 @@ async function handleRegister(e) {
      return;
   }
 
+  //соединеям данные, которые ввел пользователь
   const userData = {
-    phone: fields.phone.value.replace(/\D/g, ''),
+    phone: fields.phone.value.replace(/\D/g, ''), //D стирает плюч и т.д.
     email: fields.email.value.trim(),
     dateOfBirth: fields.dob.value,
     password: fields.password.value,
@@ -218,11 +241,13 @@ async function handleRegister(e) {
   };
 
   try {
+    //отправка на сервер
     const res = await fetch('http://localhost:3000/users', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(userData)
     });
+    //распаковываем ответ 
     const newUser = await res.json();
     localStorage.setItem('currentUser', JSON.stringify(newUser));
     showNotification('Registration successful!');

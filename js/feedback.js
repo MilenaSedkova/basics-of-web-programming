@@ -23,7 +23,7 @@ async function init() {
     elements.form.innerHTML = '<p class="error-message">Admins cannot leave feedback.</p>';
     return;
   }
-
+  //если зашел обычный пользователь - загружаем его покупки 
   await loadPurchasedServices();
 
   elements.form.addEventListener('input', validateForm);
@@ -35,12 +35,20 @@ async function loadPurchasedServices() {
     const res = await fetch(`http://localhost:3000/orders?userId=${currentUser.id}`);
     const orders = await res.json();
     
-    // Получаем уникальные купленные услуги
+    // Получаем уникальные купленные услуги, благодаря Map
     const purchased = new Map();
     orders.forEach(order => {
       order.items.forEach(item => purchased.set(item.serviceId, item.name));
     });
 
+
+    //elements.serviceSelect — мы берём из нашего кэша элементов конкретный HTML-тег 
+    // выпадающего списка <select>.
+    // .innerHTML — это встроенное свойство, которое отвечает за всё содержимое, 
+    // находящееся строго между открывающим тегом <select> и закрывающим </select>.
+
+    //'<option value="">-- Select a service --</option>' — 
+    // это новый HTML-код, который мы насильно вшиваем внутрь списка.
     elements.serviceSelect.innerHTML = '<option value="">-- Select a service --</option>';
     if (purchased.size === 0) {
       elements.serviceSelect.innerHTML = '<option value="">You haven\'t purchased anything yet</option>';
@@ -55,9 +63,16 @@ async function loadPurchasedServices() {
   }
 }
 
+
+//проверяет, корректно ли заполнена форма, 
+//чтобы вовремя заблокировать или активировать кнопку отправки
 function validateForm(e) {
-  if (e && e.target) clearError(e.target);
+  //как только пользователь начинает нажимать клавиши в каком-то поле (e.target),
+  //скрипт мгновенно стирает старую красную ошибку под этим полем, 
+  //используя те самые функции-помощники с поиском соседей
+  if (e && e.target) clearError(e.target); // e.target содержит ссылку на тот самый конкретный HTML-элемент, на котором прямо сейчас произошло событие
   
+  //значения внутри let Можно перезаписывать, живет только внутри фигурных скобках, в котроых ее записаои 
   let isValid = true;
   
   if (!elements.serviceSelect.value) isValid = false;
@@ -71,8 +86,11 @@ function validateForm(e) {
 }
 
 async function handleSubmit(e) {
+  //когда пользователь нажимает кнопку отправки это блокирует перезагрузку старницы
   e.preventDefault();
   
+
+  //упаковываем данные в объект
   const feedbackData = {
     userId: currentUser.id,
     userNickname: currentUser.nickname,
@@ -86,7 +104,7 @@ async function handleSubmit(e) {
     await fetch('http://localhost:3000/feedback', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(feedbackData)
+      body: JSON.stringify(feedbackData) //упаковываем JavaScript в json
     });
     showNotification('Feedback submitted successfully!');
     elements.form.reset();
@@ -95,5 +113,8 @@ async function handleSubmit(e) {
     showNotification('Failed to submit feedback', 'error');
   }
 }
+
+//Я подготовил всю логику выше. Теперь, браузер, сиди и жди, 
+// пока загрузится HTML. Как только он будет готов — мгновенно запускай функцию init()»
 
 document.addEventListener('DOMContentLoaded', init);

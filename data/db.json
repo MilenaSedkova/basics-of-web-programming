@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Life Transformation",
       "description": "Deep personal coaching to unlock your potential and create lasting change in all life areas.",
-      "price": 149,
+      "price": 110,
       "rating": 4.9,
       "category": "personal",
       "image": "../pictures/pricing.jpg",
@@ -103,7 +103,7 @@
       "id": 10,
       "name": "Team Synergy Workshop",
       "description": "Interactive group session to improve communication and collaboration in teams.",
-      "price": 299,
+      "price": 250,
       "rating": 4.9,
       "category": "group",
       "image": "../pictures/path-to-blog2.png",
@@ -198,7 +198,14 @@
       "id": 11
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "serviceId": "1",
+      "quantity": 1,
+      "addedAt": "2026-06-10T10:41:31.282Z",
+      "id": 1
+    }
+  ],
   "users": [
     {
       "id": "1",

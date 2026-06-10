@@ -2,11 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  
+  <link rel="icon" type="image/svg+xml" href="../pictures/favicon.svg">
   <title>Moon Coach — Leave Feedback</title>
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/form.css" />
 </head>
 <body>
+
+  <div class="burger-overlay"></div>
+  <div class="burger-menu">
+    <div class="burger-menu-header">
+      <img src="../pictures/logo.svg" alt="Moon Coach">
+    </div>
+    <ul class="burger-nav-links">
+      <li><a href="../index.html#hero">Homepages</a></li>
+      <li><a href="../index.html#about">About Pages</a></li>
+      <li><a href="../index.html#others">Others</a></li>
+      <li><a href="catalog.html">Catalog</a></li>
+      <li class="burgerAdminPanelBtn" style="display: none;"><a href="admin.html" style="color: #8B7500; font-weight: 700;">Admin Panel</a></li>
+      <li class="burgerAuthBlock"><a href="login.html">Log In</a></li>
+      <li class="burgerFeedbackLinkBtn" style="display: none;"><a href="feedback.html">Leave Feedback</a></li>
+    </ul>
+  </div>
+
   <header class="header">...</header>
 
   <main class="form-container">
@@ -34,5 +53,6 @@
   </main>
   
   <script type="module" src="../js/feedback.js"></script>
+  <script src="../js/burger.js"></script>
 </body>
 </html>

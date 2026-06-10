@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <link rel="icon" type="image/svg+xml" href="../pictures/favicon.svg">
   <title>Moon Coach — Register</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,9 +15,33 @@
   <link rel="stylesheet" href="../css/form.css" />
 </head>
 <body>
+
+  <div class="burger-overlay"></div>
+  <div class="burger-menu">
+    <div class="burger-menu-header">
+      <img src="../pictures/logo.svg" alt="Moon Coach">
+    </div>
+    <ul class="burger-nav-links">
+      <li><a href="../index.html#hero">Homepages</a></li>
+      <li><a href="../index.html#about">About Pages</a></li>
+      <li><a href="../index.html#others">Others</a></li>
+      <li><a href="catalog.html">Catalog</a></li>
+      <li class="burgerAdminPanelBtn" style="display: none;"><a href="admin.html" style="color: #8B7500; font-weight: 700;">Admin Panel</a></li>
+      <li class="burgerAuthBlock"><a href="login.html">Log In</a></li>
+      <li class="burgerFeedbackLinkBtn" style="display: none;"><a href="feedback.html">Leave Feedback</a></li>
+    </ul>
+  </div>
+
   <header class="header">
     <nav class="navbar">
       <div class="logo"><img src="../pictures/logo.svg" alt="Moon Coach"></div>
+      
+      <div class="burger-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
       <div class="header-right">
         <ul class="nav-links">
           <li><a href="../index.html">Home</a></li>
@@ -104,5 +130,6 @@
   </main>
   
   <script type="module" src="../js/register.js"></script>
+  <script src="../js/burger.js"></script>
 </body>
 </html>
